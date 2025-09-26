@@ -26,16 +26,16 @@ const TREASURY_ALLOCATION = [
 
 /* Demo Top-10 data — replace with your feed when ready */
 const TOP10_DEMO = [
-  { name: "Predictable Paul #1: Pilot Paul", ticker: "$PP1", peakMc: TBD, date: "2025-09-26", link: "https://pump.fun/coin/..." },
-  { name: "-", ticker: "-", peakMc: -, date: "-", link: "https://pump.fun/coin/..." },
-  { name: "-", ticker: "-", peakMc: -,  date: "-", link: "https://pump.fun/coin/..." },
-  { name: "-", ticker: "-", peakMc: -,  date: "-", link: "https://pump.fun/coin/..." },
-  { name: "-", ticker: "-", peakMc: -,  date: "-", link: "https://pump.fun/coin/..." },
-  { name: "-", ticker: "-", peakMc: -,  date: "-", link: "https://pump.fun/coin/..." },
-  { name: "-", ticker: "-", peakMc: -,  date: "-", link: "https://pump.fun/coin/..." },
-  { name: "-", ticker: "-", peakMc: -,  date: "-", link: "https://pump.fun/coin/..." },
-  { name: "-", ticker: "-", peakMc: -,  date: "-", link: "https://pump.fun/coin/..." },
-  { name: "-", ticker: "-", peakMc: -,  date: "-", link: "https://pump.fun/coin/..." }
+  { name: "Predictable Paul #1: Pilot Paul", ticker: "$PP1", peakMc: 0, date: "2025-09-26", link: "https://pump.fun/coin/..." },
+  { name: "-", ticker: "-", peakMc: 0, date: "-", link: "https://pump.fun/coin/..." },
+  { name: "-", ticker: "-", peakMc: 0,  date: "-", link: "https://pump.fun/coin/..." },
+  { name: "-", ticker: "-", peakMc: 0,  date: "-", link: "https://pump.fun/coin/..." },
+  { name: "-", ticker: "-", peakMc: 0,  date: "-", link: "https://pump.fun/coin/..." },
+  { name: "-", ticker: "-", peakMc: 0,  date: "-", link: "https://pump.fun/coin/..." },
+  { name: "-", ticker: "-", peakMc: 0,  date: "-", link: "https://pump.fun/coin/..." },
+  { name: "-", ticker: "-", peakMc: 0,  date: "-", link: "https://pump.fun/coin/..." },
+  { name: "-", ticker: "-", peakMc: 0,  date: "-", link: "https://pump.fun/coin/..." },
+  { name: "-", ticker: "-", peakMc: 0,  date: "-", link: "https://pump.fun/coin/..." }
 ];
 
 /* ==========================
