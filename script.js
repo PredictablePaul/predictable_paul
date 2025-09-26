@@ -17,25 +17,25 @@ const WALLETS = [
 
 // Treasury allocation rows (editable copy)
 const TREASURY_ALLOCATION = [
-  { name: "Trader Rewards", pct: "50%", desc: "Payouts for top traders" },
+  { name: "Trader Rewards", pct: "35%", desc: "Seasonal payouts for top wallets" },
   { name: "Liquidity & Buybacks", pct: "25%", desc: "Stability and price support" },
-  { name: "Development", pct: "10%", desc: "Project upgrades over the year" },
-  { name: "Collabs & Marketing", pct: "10%", desc: "Brand positioning and collaborations" },
-  { name: "Ops Reserve", pct: "5%", desc: "Security, audits, fees, stability, etc." }
+  { name: "Development", pct: "20%", desc: "Dapp, tracking infra, automation" },
+  { name: "Brand & Content", pct: "15%", desc: "Art, media, collaborations" },
+  { name: "Ops Reserve", pct: "5%", desc: "Security, audits, fees" }
 ];
 
 /* Demo Top-10 data — replace with your feed when ready */
 const TOP10_DEMO = [
-  { name: "Predictable Paul #1: Pilot Paul", ticker: "$PP1", peakMc: 0, date: "2025-09-26", link: "https://pump.fun/coin/..." },
-  { name: "-", ticker: "-", peakMc: 0, date: "-", link: "https://pump.fun/coin/..." },
-  { name: "-", ticker: "-", peakMc: 0,  date: "-", link: "https://pump.fun/coin/..." },
-  { name: "-", ticker: "-", peakMc: 0,  date: "-", link: "https://pump.fun/coin/..." },
-  { name: "-", ticker: "-", peakMc: 0,  date: "-", link: "https://pump.fun/coin/..." },
-  { name: "-", ticker: "-", peakMc: 0,  date: "-", link: "https://pump.fun/coin/..." },
-  { name: "-", ticker: "-", peakMc: 0,  date: "-", link: "https://pump.fun/coin/..." },
-  { name: "-", ticker: "-", peakMc: 0,  date: "-", link: "https://pump.fun/coin/..." },
-  { name: "-", ticker: "-", peakMc: 0,  date: "-", link: "https://pump.fun/coin/..." },
-  { name: "-", ticker: "-", peakMc: 0,  date: "-", link: "https://pump.fun/coin/..." }
+  { name: "Paul #37", ticker: "$PAUL37", peakMc: 14800000, date: "2025-09-20", link: "https://pump.fun/coin/..." },
+  { name: "Paul #12", ticker: "$PAUL12", peakMc: 11300000, date: "2025-08-29", link: "https://pump.fun/coin/..." },
+  { name: "Paul #05", ticker: "$PAUL05", peakMc: 9600000,  date: "2025-08-22", link: "https://pump.fun/coin/..." },
+  { name: "Paul #31", ticker: "$PAUL31", peakMc: 9200000,  date: "2025-09-14", link: "https://pump.fun/coin/..." },
+  { name: "Paul #03", ticker: "$PAUL03", peakMc: 8400000,  date: "2025-08-20", link: "https://pump.fun/coin/..." },
+  { name: "Paul #28", ticker: "$PAUL28", peakMc: 7900000,  date: "2025-09-11", link: "https://pump.fun/coin/..." },
+  { name: "Paul #18", ticker: "$PAUL18", peakMc: 7200000,  date: "2025-09-01", link: "https://pump.fun/coin/..." },
+  { name: "Paul #33", ticker: "$PAUL33", peakMc: 6400000,  date: "2025-09-16", link: "https://pump.fun/coin/..." },
+  { name: "Paul #22", ticker: "$PAUL22", peakMc: 6100000,  date: "2025-09-05", link: "https://pump.fun/coin/..." },
+  { name: "Paul #09", ticker: "$PAUL09", peakMc: 5800000,  date: "2025-08-26", link: "https://pump.fun/coin/..." }
 ];
 
 /* ==========================
