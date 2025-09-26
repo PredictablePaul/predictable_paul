@@ -1,70 +1,218 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width"/>
-<title>Predictable Paul — PPx</title>
-<meta name="description" content="One new Paul, same time, every day (~9PM ET). The most predictable thing in crypto.">
-<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Baloo+2:wght@600;800&display=swap" rel="stylesheet">
-<style>
-  body { margin:0; background:#0b0b0f; color:#f2f2f5; font-family:'Baloo 2',sans-serif; }
-  .wrap{max-width:960px;margin:0 auto;padding:24px}
-  h1{font-family:'Luckiest Guy',cursive;font-size:42px;margin:0 0 12px}
-  h2{margin:12px 0}
-  .card{background:#121218;border:1px solid #1e1e2a;border-radius:12px;padding:18px;margin:12px 0}
-  a{color:#9ecbff;text-decoration:none}
-  a:hover{text-decoration:underline}
-  .timer{font:800 28px monospace;color:#aee7ff;margin-top:8px}
-  footer{margin-top:32px;font-size:14px;opacity:.7}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Predictable Paul — Unleashing a web3 brand universe through predictable pumps</title>
+  <meta name="description" content="Predictable Paul: daily Paul, leaderboards, NFT collection of the Top 99 Pauls, roadmap, trader rewards, and treasury info." />
+  <meta property="og:title" content="Predictable Paul" />
+  <meta property="og:description" content="Unleashing a web3 brand universe through predictable pumps." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0b0f13" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<div class="wrap">
-  <h1>Predictable Paul — PPx</h1>
-  <div class="card">
-    <h2 id="ppc-name">Loading…</h2>
-    <img id="ppc-img" src="public/paul.png" alt="Today’s Paul" style="max-width:100%;border-radius:8px"/>
-    <p><a id="mint" target="_blank">Mint →</a> · <a id="chart" target="_blank">Chart →</a></p>
-    <div><strong>Next drop in:</strong></div>
-    <div id="timer" class="timer">--:--:--</div>
-  </div>
+  <!-- Top Nav -->
+  <header class="site-header">
+    <div class="wrap">
+      <a href="#top" class="brand">Predictable <span>Paul</span></a>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#top-10">Top 10 Pauls</a>
+        <a href="#nft">Top 99 NFTs</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#trader">Trader Leaderboard</a>
+        <a href="#treasury">Treasury</a>
+      </nav>
+    </div>
+  </header>
 
-  <div class="card">
-    <h2>What is Predictable Paul?</h2>
-    <p>Daily memecoin drops for 365 days — one new Paul around <strong>9:00 PM ET</strong> every day. After one year, the <strong>Top 99 Pauls by peak market cap</strong> become our NFT collection.</p>
-    <p><a href="rules.html">See rules →</a> · <a href="roadmap.html">Roadmap →</a></p>
-  </div>
+  <!-- Hero / Landing -->
+  <main id="top" class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-left">
+        <h1 class="title">Predictable Paul</h1>
+        <p class="tagline">Unleashing a web3 brand universe through predictable pumps</p>
 
-  <footer>
-    © Predictable Paul — PPx. Paul is inevitable.
+        <div class="countdown-card">
+          <div class="cd-label">Next Paul in</div>
+          <div id="countdown" class="cd-time">--:--:--</div>
+          <div class="cd-sub">Daily at <strong>9:00 PM EST</strong></div>
+        </div>
+
+        <div class="cta-row">
+          <a id="pumpLink" class="btn primary" href="#" target="_blank" rel="noopener">Trade today’s Paul on pump.fun</a>
+          <button id="launchDapp" class="btn ghost">Launch Dapp</button>
+        </div>
+
+        <div class="ticker-row">
+          <div class="ticker-label">Today’s Ticker</div>
+          <div id="paulTicker" class="ticker-value">$PAUL</div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <figure class="paul-card">
+          <img id="paulImg" src="" alt="Today’s Paul" />
+          <figcaption>Today’s Paul</figcaption>
+        </figure>
+      </div>
+    </div>
+  </main>
+
+  <!-- About -->
+  <section id="about" class="section">
+    <div class="wrap">
+      <h2>About the Project</h2>
+      <p>
+        Predictable Paul is a daily cadence of meme-coin launches and culture drops, all orbiting a single character: <em>Paul</em>.
+        Each day at 9:00 PM EST, a new Paul goes live. We track market-cap peaks, crown the legends, and build a brand universe
+        around the most iconic runs. Everything feeds a transparent treasury and future rewards.
+      </p>
+      <ul class="bullets">
+        <li>Daily Paul drop at 9:00 PM EST</li>
+        <li>Public Top-10 leaderboard by peak market cap</li>
+        <li>Top 99 Pauls become a curated NFT collection (1 year after Paul #1)</li>
+        <li>Trader tracking & rewards (coming soon)</li>
+        <li>Creator fee treasury: transparent & on-chain</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Top 10 Leaderboard -->
+  <section id="top-10" class="section alt">
+    <div class="wrap">
+      <h2>Top 10 Pauls (Peak Market Cap)</h2>
+      <p class="sub">Live community scoreboard of the highest peak MCs. Pulls from daily results (demo data below — wire this to your feed when ready).</p>
+
+      <div class="table-wrap">
+        <table class="table" id="top10Table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Paul</th>
+              <th>Ticker</th>
+              <th>Peak MC</th>
+              <th>Date</th>
+              <th>Trade</th>
+            </tr>
+          </thead>
+          <tbody><!-- injected by script.js --></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- NFT Collection -->
+  <section id="nft" class="section">
+    <div class="wrap">
+      <h2>The Top 99 Pauls — NFT Collection</h2>
+      <p>
+        One year after <strong>Paul #1</strong>, we snapshot the historical leaderboard and mint a curated
+        collection of the <strong>Top 99 Pauls</strong>. Each NFT is a canonized chapter in the Paul mythos with on-chain metadata:
+        rank, peak MC, date, and provenance.
+      </p>
+      <div class="cards">
+        <div class="card">
+          <h3>Supply</h3>
+          <p>99 unique NFTs</p>
+        </div>
+        <div class="card">
+          <h3>Eligibility</h3>
+          <p>Snapshot of Top 99 peak MC Pauls at the 1-year mark</p>
+        </div>
+        <div class="card">
+          <h3>Utility</h3>
+          <p>Priority allowlist, merch, future collabs, and lore canon</p>
+        </div>
+        <div class="card">
+          <h3>Reveal</h3>
+          <p>Post-snapshot, with art evolved from each Paul’s daily image</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Roadmap -->
+  <section id="roadmap" class="section alt">
+    <div class="wrap">
+      <h2>Roadmap</h2>
+      <ol class="roadmap">
+        <li><strong>Phase 1:</strong> Daily Paul drops, public Top-10 board, treasury transparency</li>
+        <li><strong>Phase 2:</strong> Trader tracking beta (wallet linking, Paul-trade scoring)</li>
+        <li><strong>Phase 3:</strong> Rewards system (leaderboard seasons, claim windows)</li>
+        <li><strong>Phase 4:</strong> Top 99 NFT collection & brand collabs</li>
+        <li><strong>Phase 5:</strong> Dapp launch: dashboards, live feeds, on-site trading widgets</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Trader Leaderboard -->
+  <section id="trader" class="section">
+    <div class="wrap">
+      <h2>Predictable Paul Trader Leaderboard</h2>
+      <div class="coming-soon">
+        <span class="badge">Coming Soon</span>
+        <p>
+          Track every Paul trade from Day 1. We’ll rank wallets by realized PnL, consistency, and risk-adjusted returns.
+          Season rewards will be funded by a portion of creator fees.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Treasury -->
+  <section id="treasury" class="section alt">
+    <div class="wrap">
+      <h2>Treasury & Creator Fees</h2>
+      <p>
+        A transparent treasury aggregates creator fees from all Paul coins. Allocations will be disclosed here (and on-chain):
+      </p>
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Allocation</th>
+              <th>%</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody id="treasuryTable">
+            <!-- injected by script.js -->
+          </tbody>
+        </table>
+      </div>
+      <div class="wallets" id="wallets">
+        <!-- optional wallet addresses inserted by script.js -->
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div>© <span id="year"></span> Predictable Paul</div>
+      <div class="footer-nav">
+        <a href="#top">Back to top</a>
+        <a href="#about">About</a>
+        <a href="#top-10">Top 10</a>
+        <a href="#nft">Top 99</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#trader">Traders</a>
+        <a href="#treasury">Treasury</a>
+      </div>
+    </div>
   </footer>
-</div>
 
-<script>
-(async function(){
-  const $ = id => document.getElementById(id);
-  try {
-    const data = await fetch('data/today.json', {cache:'no-store'}).then(r=>r.json());
-    $('ppc-name').textContent = data.name || 'Today’s Paul';
-    $('ppc-img').src = data.image || 'public/paul.png';
-    $('mint').href = data.mint_url || '#';
-    $('chart').href = data.chart_url || '#';
-    const launch = Date.parse(data.launch_time_utc);
-    const resetAt = launch + 24*60*60*1000;
-    function tick(){
-      const now = Date.now();
-      let diff = resetAt - now;
-      if(diff < 0) diff = 0;
-      const h = String(Math.floor(diff/3600000)).padStart(2,'0');
-      const m = String(Math.floor((diff%3600000)/60000)).padStart(2,'0');
-      const s = String(Math.floor((diff%60000)/1000)).padStart(2,'0');
-      $('timer').textContent = `${h}:${m}:${s}`;
-      requestAnimationFrame(tick);
-    }
-    tick();
-  } catch(e){
-    $('ppc-name').textContent = 'Load error';
-  }
-})();
-</script>
+  <!-- Modal: Launch Dapp -->
+  <dialog id="comingSoonModal" class="modal">
+    <div class="modal-card">
+      <h3>Not ready, smoothbrain.</h3>
+      <p>The Dapp launches after we finish wiring trader tracking + rewards.</p>
+      <button id="closeModal" class="btn primary">Got it</button>
+    </div>
+  </dialog>
+
+  <script src="script.js"></script>
 </body>
 </html>
