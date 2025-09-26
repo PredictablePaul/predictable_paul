@@ -17,10 +17,10 @@ const WALLETS = [
 
 // Treasury allocation rows (editable copy)
 const TREASURY_ALLOCATION = [
-  { name: "Trader Rewards", pct: "50%", desc: "Payouts for top traders" },
-  { name: "Development", pct: "10%", desc: "Project upgrades" },
+  { name: "Trader Rewards", pct: "60%", desc: "Payouts for top traders" },
+  { name: "Development", pct: "20%", desc: "Project upgrades" },
   { name: "Marketing & Collabs", pct: "10%", desc: "Expanding the brand and streams of rev." },
-  { name: "Team + Ops Reserve", pct: "5%", desc: "Team, security, audits, fees, etc." }
+  { name: "Team + Ops Reserve", pct: "10%", desc: "Team, security, audits, fees, etc." }
 ];
 
 /* Demo Top-10 data — replace with your feed when ready */
