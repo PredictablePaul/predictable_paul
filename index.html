@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width"/>
+<title>Predictable Paul — PPx</title>
+<meta name="description" content="One new Paul, same time, every day (~9PM ET). The most predictable thing in crypto.">
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Baloo+2:wght@600;800&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; background:#0b0b0f; color:#f2f2f5; font-family:'Baloo 2',sans-serif; }
+  .wrap{max-width:960px;margin:0 auto;padding:24px}
+  h1{font-family:'Luckiest Guy',cursive;font-size:42px;margin:0 0 12px}
+  h2{margin:12px 0}
+  .card{background:#121218;border:1px solid #1e1e2a;border-radius:12px;padding:18px;margin:12px 0}
+  a{color:#9ecbff;text-decoration:none}
+  a:hover{text-decoration:underline}
+  .timer{font:800 28px monospace;color:#aee7ff;margin-top:8px}
+  footer{margin-top:32px;font-size:14px;opacity:.7}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Predictable Paul — PPx</h1>
+  <div class="card">
+    <h2 id="ppc-name">Loading…</h2>
+    <img id="ppc-img" src="public/paul.png" alt="Today’s Paul" style="max-width:100%;border-radius:8px"/>
+    <p><a id="mint" target="_blank">Mint →</a> · <a id="chart" target="_blank">Chart →</a></p>
+    <div><strong>Next drop in:</strong></div>
+    <div id="timer" class="timer">--:--:--</div>
+  </div>
+
+  <div class="card">
+    <h2>What is Predictable Paul?</h2>
+    <p>Daily memecoin drops for 365 days — one new Paul around <strong>9:00 PM ET</strong> every day. After one year, the <strong>Top 99 Pauls by peak market cap</strong> become our NFT collection.</p>
+    <p><a href="rules.html">See rules →</a> · <a href="roadmap.html">Roadmap →</a></p>
+  </div>
+
+  <footer>
+    © Predictable Paul — PPx. Paul is inevitable.
+  </footer>
+</div>
+
+<script>
+(async function(){
+  const $ = id => document.getElementById(id);
+  try {
+    const data = await fetch('data/today.json', {cache:'no-store'}).then(r=>r.json());
+    $('ppc-name').textContent = data.name || 'Today’s Paul';
+    $('ppc-img').src = data.image || 'public/paul.png';
+    $('mint').href = data.mint_url || '#';
+    $('chart').href = data.chart_url || '#';
+    const launch = Date.parse(data.launch_time_utc);
+    const resetAt = launch + 24*60*60*1000;
+    function tick(){
+      const now = Date.now();
+      let diff = resetAt - now;
+      if(diff < 0) diff = 0;
+      const h = String(Math.floor(diff/3600000)).padStart(2,'0');
+      const m = String(Math.floor((diff%3600000)/60000)).padStart(2,'0');
+      const s = String(Math.floor((diff%60000)/1000)).padStart(2,'0');
+      $('timer').textContent = `${h}:${m}:${s}`;
+      requestAnimationFrame(tick);
+    }
+    tick();
+  } catch(e){
+    $('ppc-name').textContent = 'Load error';
+  }
+})();
+</script>
+</body>
+</html>
