@@ -4,8 +4,9 @@
 
 // Today’s Paul
 const TODAY = {
-  ticker: "$PAUL",                                // e.g., "$PAUL29"
-  imageUrl: "https://placehold.co/800x800/png",   // put today’s Paul image URL
+  ticker: "$PP1",                                // e.g., "$PAUL29"
+  imageUrl: "https://predictablepump.com/pp1.png
+",   // put today’s Paul image URL
   pumpLink: "https://pump.fun/coin/REPLACE_THIS"  // pump.fun link for today’s Paul
 };
 
