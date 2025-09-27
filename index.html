@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Predictable Paul — Daily Meta Coins on Solana</title>
+  <title>Predictable Paul — Same time, Different Paul.</title>
   <meta name="description" content="Predictable Paul: a new coin every day at 9PM EST. Built on Solana, launched on pump.fun, always on-meta." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -194,7 +194,7 @@
         <a href="#current">Current</a>
         <a href="#tomorrow">Next</a>
         <a href="#later">Later</a>
-        <a href="#wall">Wall</a>
+        <a href="#wall">Paul Wall</a>
         <a href="#why">Why&nbsp;Paul</a>
         <a href="#treasury">Treasury</a>
       </nav>
@@ -327,14 +327,14 @@
     <!-- Later -->
     <section id="later" class="later-section">
       <div class="wrap reveal">
-        <h2>Later: The Endgame</h2>
-        <p class="lead">At year’s end, we mint the official collection of top Pauls. Minting a Paul’s NFT makes your wallet the recognized <strong>Leader</strong> of that Paul across our ecosystem.</p>
+        <h2>Later: The Official Collection</h2>
+        <p class="lead">At year’s end, we mint the official collection of Predictable Pauls. Minting a Predictable Paul NFT makes your wallet the recognized <strong>Leader</strong> of that Paul across our ecosystem.</p>
         <div class="pill-grid three">
-          <div class="pill"><h3>Social Leadership</h3><p>Your wallet is shown as Leader on site & dapp. Set official title, blurb, and image (within brand rules).</p></div>
+          <div class="pill"><h3>Social Leadership</h3><p>Your wallet is shown as Leader on site & dapp.</p></div>
           <div class="pill"><h3>On-Chain Registry</h3><p>A minimal registry maps <em>Paul Token ↔ Paul NFT ↔ Leader Wallet</em>. Leadership follows the NFT owner.</p></div>
           <div class="pill"><h3>Leader Console</h3><p>Post-mint dapp controls: official links, meta tags, and display settings—no token mint authority needed.</p></div>
         </div>
-        <p class="tiny muted">Leader status = ecosytem recognition & UI control, not financial rights.</p>
+        <p class="tiny muted">Leader status = ecosytem recognition, IP ownership, & UI control.</p>
       </div>
     </section>
 
@@ -342,7 +342,7 @@
     <section id="treasury" class="treasury-section">
       <div class="wrap reveal">
         <h2>Treasury: Creator Fees</h2>
-        <p class="lead">Creator fees from all 365 Paul launches accumulate into transparent wallets for the ecosystem.</p>
+        <p class="lead">Creator fees from all 365 Predictable Paul launches will accumulate into a transparent wallet for the ecosystem.</p>
         <div class="allocs">
           <div class="alloc"><strong>60%</strong><span>Trader Rewards</span></div>
           <div class="alloc"><strong>35%</strong><span>Future Investment</span></div>
@@ -372,11 +372,11 @@
   <dialog id="dappModal" class="modal">
     <div class="modal-inner">
       <h3>Predictable Paul Dapp (Coming Soon)</h3>
-      <p>The control room for the Paul-verse.</p>
+      <p>The control room for Predictable Paul day-traders.</p>
       <ul class="bullets">
-        <li>Paul Explorer: browse all Pauls with stats and badges</li>
-        <li>Leader Console: NFT holders manage their Paul’s presentation</li>
-        <li>Treasury View: live allocations (60/35/5) and history</li>
+        <li>Paul Explorer: browse all Pauls with stats, news, and links</li>
+        <li>Trader Rewards: traders will be able to track PNLs across all Paul coins and claim rewards</li>
+        <li>Treasury View: live allocations of creator fees, on-site incentivized burns</li>
       </ul>
       <div class="modal-ctas"><button class="btn" id="closeDapp">Close</button></div>
     </div>
@@ -386,26 +386,26 @@
   /* ===== CONFIG ===== */
   const CONFIG = {
     brand:{ logoUrl:"/paul-logo.png" },
-    links:{twitter:"https://x.com/predictablepaul", telegram:"https://t.me/predictablepaul", docs:"#", pump_home:"https://pump.fun"},
-    wallets:{traderRewards:"PAUL_REWARDS_WALLET_ADDRESS", futureInvestment:"PAUL_FUTURE_WALLET_ADDRESS", teamReserve:"PAUL_TEAM_WALLET_ADDRESS"},
+    links:{twitter:"https://x.com/predictablepaul", telegram:"https://t.me", docs:"#", pump_home:"https://pump.fun"},
+    wallets:{traderRewards:"Cx9WafsmedAivfPjfQrHWHcm5ybemvzZajRYvtz1Wt3u", futureInvestment:"Cx9WafsmedAivfPjfQrHWHcm5ybemvzZajRYvtz1Wt3u", teamReserve:"Cx9WafsmedAivfPjfQrHWHcm5ybemvzZajRYvtz1Wt3u"},
     currentCoin:{
-      day:1, title:"Predictable Paul #1: OG Paul", ticker:"$PAUL1",
-      ca:"REPLACE_WITH_TODAY_CA",
+      day:1, title:"Predictable Paul #1: OG Paul", ticker:"$PP1",
+      ca:"AeJr2c4cCegwVwHYWUwDyLwhkd3sRr1KqTVMg6cNpump",
       imageUrl:"/pp1.png",
-      pumpUrl:"https://pump.fun", peakMc:17900, volume:7400, holders:310
+      pumpUrl:"https://pump.fun/coin/AeJr2c4cCegwVwHYWUwDyLwhkd3sRr1KqTVMg6cNpump", peakMc:17900, volume:29400, holders:22
     },
-    tomorrow:{teaserUrl:"/tomorrow.png", hints:["Silhouette: broad shoulders","Palette: electric cyan","Mood: villain arc"]},
+    tomorrow:{teaserUrl:"/tomorrow.png", hints:["Launch at 9PM EST"]},
     archive:[
-      { day:1, title:"Predictable Paul #1: OG Paul", image:"/pp1.png", peakMc:17900, ticker:"$PAUL1", graduated:true },
-      { day:2, title:"Placeholder Paul #2", image:"https://placehold.co/800x800?text=Paul+2", peakMc:12000, ticker:"$PAUL2" },
-      { day:3, title:"Placeholder Paul #3", image:"https://placehold.co/800x800?text=Paul+3", peakMc:9000, ticker:"$PAUL3" },
-      { day:4, title:"Placeholder Paul #4", image:"https://placehold.co/800x800?text=Paul+4", peakMc:7000, ticker:"$PAUL4" },
-      { day:5, title:"Placeholder Paul #5", image:"https://placehold.co/800x800?text=Paul+5", peakMc:6500, ticker:"$PAUL5" },
-      { day:6, title:"Placeholder Paul #6", image:"https://placehold.co/800x800?text=Paul+6", peakMc:6000, ticker:"$PAUL6" },
-      { day:7, title:"Placeholder Paul #7", image:"https://placehold.co/800x800?text=Paul+7", peakMc:5500, ticker:"$PAUL7" },
-      { day:8, title:"Placeholder Paul #8", image:"https://placehold.co/800x800?text=Paul+8", peakMc:5000, ticker:"$PAUL8" },
-      { day:9, title:"Placeholder Paul #9", image:"https://placehold.co/800x800?text=Paul+9", peakMc:4500, ticker:"$PAUL9" },
-      { day:10, title:"Placeholder Paul #10", image:"https://placehold.co/800x800?text=Paul+10", peakMc:4000, ticker:"$PAUL10" }
+      { day:1, title:"Predictable Paul #1: OG Paul", image:"/pp1.png", peakMc:17900, ticker:"$PP1", graduated:false },
+      { day:2, title:"-", image:"https://placehold.co/800x800?text=Paul+2", peakMc:0, ticker:"-" },
+      { day:3, title:"-", image:"https://placehold.co/800x800?text=Paul+3", peakMc:0, ticker:"-" },
+      { day:4, title:"-", image:"https://placehold.co/800x800?text=Paul+4", peakMc:0, ticker:"-" },
+      { day:5, title:"-", image:"https://placehold.co/800x800?text=Paul+5", peakMc:0, ticker:"-" },
+      { day:6, title:"-", image:"https://placehold.co/800x800?text=Paul+6", peakMc:0, ticker:"-" },
+      { day:7, title:"-", image:"https://placehold.co/800x800?text=Paul+7", peakMc:0, ticker:"-" },
+      { day:8, title:"-", image:"https://placehold.co/800x800?text=Paul+8", peakMc:0, ticker:"-" },
+      { day:9, title:"-", image:"https://placehold.co/800x800?text=Paul+9", peakMc:0, ticker:"-" },
+      { day:10, title:"-", image:"https://placehold.co/800x800?text=Paul+10", peakMc:0, ticker:"-" }
     ],
     wall:{chunkSize:12}
   };
