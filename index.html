@@ -1,213 +1,278 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Predictable Paul — Same Time. Different Paul.</title>
-  <meta name="description" content="Predictable Paul: daily Paul, leaderboards, NFT collection of the Top 99 Pauls, roadmap, trader rewards, and treasury info." />
-  <meta property="og:title" content="Predictable Paul" />
-  <meta property="og:description" content="Unleashing a web3 brand universe through predictable pumps." />
-  <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#0b0f13" />
+  <title>Predictable Paul — Daily Meta Coins on Solana</title>
+  <meta name="description" content="Predictable Paul: a new coin every day at 9PM EST. Built on Solana, launched on pump.fun, always on-meta." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Top Nav -->
+  <a class="skip" href="#current">Skip to content</a>
+
   <header class="site-header">
     <div class="wrap">
-      <a href="#top" class="brand">Predictable <span>Paul</span></a>
-      <nav class="nav">
-        <a href="#about">About</a>
-        <a href="#top-10">Top Pauls</a>
-        <a href="#roadmap">Roadmap</a>
-        <a href="#trader">Trader Leaderboard</a>
-        <a href="#treasury">Rewards</a>
+      <a class="brand" href="#top" aria-label="Predictable Paul Home">
+        <span class="coin-dot" aria-hidden="true"></span>
+        <span class="brand-name">Predictable Paul</span>
+      </a>
+
+      <input id="navToggle" type="checkbox" aria-label="Toggle menu">
+      <label for="navToggle" class="burger" aria-hidden="true"><span></span><span></span><span></span></label>
+
+      <nav class="main-nav" aria-label="Main">
+        <a href="#current">Today</a>
+        <a href="#tomorrow">Tomorrow</a>
+        <a href="#later">Later</a>
+        <a href="#wall">Wall</a>
+        <a href="#archive">Archive</a>
+        <a href="#why">Why&nbsp;Paul</a>
+        <a href="#treasury">Treasury</a>
       </nav>
+
+      <div class="hdr-ctas">
+        <button class="btn primary" id="launchDappBtn">Launch Dapp</button>
+        <a class="pump-badge" id="pumpHome" target="_blank" rel="noopener" aria-label="pump.fun homepage">
+          <span class="pump-dot"></span> Built on pump.fun
+        </a>
+      </div>
     </div>
   </header>
 
-  <!-- Hero / Landing -->
-  <main id="top" class="hero">
-    <div class="wrap hero-grid">
-      <div class="hero-left">
-        <h1 class="title">Predictable Paul</h1>
-        <p class="tagline">Unleashing a web3 brand universe through predictable pumps</p>
+  <main id="top">
+    <!-- Tri-Card Hero: Today big, Tomorrow teaser small, King Paul small -->
+    <section id="current" class="trihero-section">
+      <div class="wrap tri-grid">
+        <!-- Today (big) -->
+        <article class="card today reveal">
+          <div class="media">
+            <img id="currentImage" src="" alt="Today’s Paul artwork" loading="eager" />
+            <div class="badge peak" id="peakBadge">Peak MC: —</div>
+          </div>
+          <div class="body">
+            <h1 class="title">
+              <span id="currentTitle">Today’s Paul</span>
+              <span id="todayBadges" class="badges"></span>
+            </h1>
+            <p class="sub">A new Paul every day at <strong>9:00 PM EST</strong>. Always on-meta.</p>
 
-        <div class="countdown-card">
-          <div class="cd-label">Next Paul in</div>
-          <div id="countdown" class="cd-time">--:--:--</div>
-          <div class="cd-sub">Daily at <strong>9:00 PM EST</strong></div>
+            <div class="row ca-row">
+              <span class="mono">CA:</span>
+              <button class="ca-btn" id="copyCaBtn" title="Copy Contract Address"></button>
+            </div>
+
+            <div class="row ctas">
+              <a class="btn primary big" id="pumpTrade" target="_blank" rel="noopener">Trade on pump.fun →</a>
+            </div>
+
+            <div class="stats">
+              <div class="stat"><span>Peak MC</span><strong id="statPeak">—</strong></div>
+              <div class="stat"><span>Volume</span><strong id="statVol">—</strong></div>
+              <div class="stat"><span>Holders</span><strong id="statHolders">—</strong></div>
+            </div>
+
+            <div class="countdown">
+              <div class="countdown-label">Next Paul launches in</div>
+              <div id="countdownTimer" class="countdown-timer">—</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Tomorrow (small) -->
+        <article id="tomorrow" class="card tomorrow reveal">
+          <div class="media veil">
+            <img id="teaserImage" src="" alt="Tomorrow’s Paul teaser" loading="lazy" />
+            <div class="badge chip">Tomorrow · 9:00 PM EST</div>
+          </div>
+          <div class="body">
+            <h2 class="title small">Tomorrow’s Paul (Encrypted)</h2>
+            <ul class="bullets" id="hintsList">
+              <li>Silhouette: —</li>
+              <li>Palette: —</li>
+              <li>Mood: —</li>
+            </ul>
+            <p class="tiny muted">Hints at <strong>12 PM</strong> & <strong>6 PM</strong> EST</p>
+          </div>
+        </article>
+
+        <!-- King Paul (small) -->
+        <article class="card king reveal">
+          <div class="media">
+            <img id="kingImage" src="" alt="King Paul highlight" loading="lazy" />
+            <div class="badge crown">👑 King Paul</div>
+          </div>
+          <div class="body">
+            <h2 class="title small" id="kingTitle">King Paul</h2>
+            <p class="sub small">Highest peak MC so far.</p>
+            <div class="stats compact">
+              <div class="stat"><span>Peak MC</span><strong id="kingPeak">—</strong></div>
+              <div class="stat"><span>Day</span><strong id="kingDay">—</strong></div>
+            </div>
+            <a class="btn ghost" id="kingView" href="#archive">View in Archive</a>
+          </div>
+        </article>
+      </div>
+      <p class="wrap tiny muted pump-note">Launched on pump.fun • Fair, fast, fun.</p>
+    </section>
+
+    <!-- pump.fun Showcase strip -->
+    <section id="pumpstrip" class="pump-strip">
+      <div class="wrap strip-grid reveal">
+        <div class="strip-left">
+          <a id="pumpHome2" class="pump-brand" target="_blank" rel="noopener">
+            <span class="pump-dot lg"></span>
+            <span>Built on pump.fun</span>
+          </a>
         </div>
-
-        <div class="cta-row">
-          <a id="pumpLink" class="btn primary" href="#" target="_blank" rel="noopener">Trade today’s Paul on pump.fun</a>
-          <button id="launchDapp" class="btn ghost">Launch Dapp</button>
-        </div>
-
-        <div class="ticker-row">
-          <div class="ticker-label">Today's Ticker</div>
-          <div id="paulTicker" class="ticker-value">$PP1</div>
+        <ul class="strip-bullets">
+          <li>Fair launches, daily</li>
+          <li>Trend-speed minting</li>
+          <li>Where meta is born</li>
+        </ul>
+        <div class="strip-cta">
+          <a class="btn ghost" id="pumpExplore" target="_blank" rel="noopener">Explore pump.fun →</a>
         </div>
       </div>
+    </section>
 
-      <div class="hero-right">
-        <figure class="paul-card">
-          <img id="paulImg" src="" alt="Today’s Paul" />
-          <figcaption>Today’s Paul</figcaption>
-        </figure>
+    <!-- Top 10 (optional quick strip; ranked by Peak MC) -->
+    <section id="top10" class="top10-section">
+      <div class="wrap">
+        <div class="top10-head">
+          <h2>Top 10 Pauls</h2>
+          <span class="tiny muted">Ranked by highest peak MC</span>
+        </div>
       </div>
-    </div>
+      <div class="top10-rail-outer reveal">
+        <div id="top10Rail" class="top10-rail" aria-label="Top 10 Pauls, horizontal scroll"></div>
+      </div>
+    </section>
+
+    <!-- Wall of Pauls (horizontal, ranked + infinite + sort chips) -->
+    <section id="wall" class="wall-section">
+      <div class="wrap">
+        <div class="wall-head">
+          <h2>Wall of Pauls</h2>
+          <div class="chips" role="tablist" aria-label="Sort wall">
+            <button class="chip active" data-sort="peak">Peak MC</button>
+            <button class="chip" data-sort="dayAsc">By Day</button>
+            <button class="chip" data-sort="dayDesc">Latest</button>
+          </div>
+        </div>
+      </div>
+      <div class="wall-rail-outer reveal">
+        <div id="wallRail" class="wall-rail" tabindex="0" aria-label="Wall of Pauls, horizontal scroll"></div>
+        <div id="wallSentinel" class="wall-sentinel" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- Archive Grid -->
+    <section id="archive" class="archive-section">
+      <div class="wrap reveal">
+        <div class="arch-head">
+          <h2>Archive</h2>
+          <p class="subtitle">Every Paul with its peak MC. Badges mark legends.</p>
+        </div>
+        <div id="archiveGrid" class="card-grid"></div>
+      </div>
+    </section>
+
+    <!-- Why Paul -->
+    <section id="why" class="meta-section">
+      <div class="wrap reveal">
+        <h2>Why Paul Never Falls Off</h2>
+        <p class="lead">
+          Paul is a daily adaptive meme—he tunes himself to the current <em>meta</em> across crypto and culture.
+          If AI art explodes, Paul flexes it. When slang flips, Paul speaks it. Airdrops? Elections? Sports?
+          Paul mirrors what’s hot—<strong>365 days straight</strong>.
+        </p>
+        <div class="pill-grid">
+          <div class="pill"><h3>Signal Intake</h3><p>Real-time trend signals: X, search spikes, niches, macro news.</p></div>
+          <div class="pill"><h3>Daily Re-Skin</h3><p>Visual + copy redesigned daily to match the prevailing meme language.</p></div>
+          <div class="pill"><h3>Meta Locks</h3><p>Winning themes run 2–3 days with variants to compound attention.</p></div>
+          <div class="pill"><h3>Kill Switch</h3><p>Dead metas rotate out within 24 hours—no stale weeks.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Later (Endgame NFTs & Leadership) -->
+    <section id="later" class="later-section">
+      <div class="wrap reveal">
+        <h2>Later: The Endgame</h2>
+        <p class="lead">At year’s end, we mint the official collection of top Pauls. Minting a Paul’s NFT makes your wallet the recognized <strong>Leader</strong> of that Paul across our ecosystem.</p>
+        <div class="pill-grid three">
+          <div class="pill">
+            <h3>Social Leadership</h3>
+            <p>Your wallet is shown as Leader on site & dapp. Set official title, blurb, and image (within brand rules).</p>
+          </div>
+          <div class="pill">
+            <h3>On-Chain Registry</h3>
+            <p>A minimal registry maps <em>Paul Token ↔ Paul NFT ↔ Leader Wallet</em>. Leadership follows the NFT owner.</p>
+          </div>
+          <div class="pill">
+            <h3>Leader Console</h3>
+            <p>Post-mint dapp controls: official links, meta tags, and display settings—no token mint authority needed.</p>
+          </div>
+        </div>
+        <p class="tiny muted">Leader status = ecosystem recognition & UI control, not financial rights.</p>
+      </div>
+    </section>
+
+    <!-- Treasury (60/35/5) -->
+    <section id="treasury" class="treasury-section">
+      <div class="wrap reveal">
+        <h2>Treasury: Creator Fees</h2>
+        <p class="lead">Creator fees from all 365 Paul launches accumulate into transparent wallets for the ecosystem.</p>
+        <div class="allocs">
+          <div class="alloc"><strong>60%</strong><span>Trader Rewards</span></div>
+          <div class="alloc"><strong>35%</strong><span>Future Investment</span></div>
+          <div class="alloc"><strong>5%</strong><span>Team + Reserve</span></div>
+        </div>
+        <div class="wallets">
+          <div class="w"><span>Trader Rewards</span><button class="ca-btn sm" id="wRewards">Copy</button></div>
+          <div class="w"><span>Future Investment</span><button class="ca-btn sm" id="wFuture">Copy</button></div>
+          <div class="w"><span>Team + Reserve</span><button class="ca-btn sm" id="wTeam">Copy</button></div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- About -->
-  <section id="about" class="section">
-    <div class="wrap">
-      <h2>About the Project</h2>
-      <p>
-       Predictable Paul is a daily ritual of meme-coin launches and culture drops, all revolving around one character: Predictable Paul.
-Every night at 9:00 PM EST, a new Paul is born on Solana — and this cycle repeats for 365 straight days.
-
-Across the year:
-365 Paul coins will launch, each one as predictable as the clock.
-Leaderboards track every Paul by peak market cap.
-After one year, the Top 99 Predictable Pauls will be canonized into the official NFT collection.
-Trader performance is tracked across all Paul coins, with rewards distributed from the Treasury to top performers.
-It’s simple: same time, new Paul, every day — building out our brand in predictable, gamified fashion.
-      </p>
-      <ul class="bullets">
-        <li>Daily Paul drop at 9:00 PM EST</li>
-        <li>Public Top-10 leaderboard by peak market cap</li>
-        <li>Top 99 Pauls become a curated NFT collection (1 year after Paul #1)</li>
-        <li>Trader tracking & rewards (coming soon)</li>
-        <li>Creator fee treasury: transparent & on-chain</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Top 10 Leaderboard -->
-  <section id="top-10" class="section alt">
-    <div class="wrap">
-      <h2>Top 10 Pauls (Peak Market Cap)</h2>
-      <p class="sub">Live community scoreboard of the highest peak MCs. Updated daily.</p>
-
-      <div class="table-wrap">
-        <table class="table" id="top10Table">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Paul</th>
-              <th>Ticker</th>
-              <th>Peak MC</th>
-              <th>Date</th>
-              <th>Pump.Fun</th>
-            </tr>
-          </thead>
-          <tbody><!-- injected by script.js --></tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- NFT Collection -->
-  <section id="nft" class="section">
-    <div class="wrap">
-      <h2>Predictable Paul — The NFT Collection</h2>
-      <p>
-        One year after <strong>$PP1</strong>, we snapshot the historical leaderboard and mint a curated
-        collection of the <strong>Top 99 Predictable Pauls</strong>. Each NFT is a canonized chapter in the Paul mythos with on-chain metadata:
-        rank, peak MC, date, and provenance. The holder of each NFT will become the owner and leader of the underlying Predictable Paul memecoin.
-      </p>
-      <div class="cards">
-        <div class="card">
-          <h3>Supply</h3>
-          <p>99 unique NFTs</p>
-        </div>
-        <div class="card">
-          <h3>Eligibility</h3>
-          <p>Determined by individual Predictable Paul coin trade performance over the year</p>
-        </div>
-        <div class="card">
-          <h3>Utility</h3>
-          <p>Lore canon; Underlying memecoin; Anything else we build over the year</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Roadmap -->
-  <section id="roadmap" class="section alt">
-    <div class="wrap">
-      <h2>Roadmap</h2>
-      <ol class="roadmap">
-        <li><strong>Phase 1:</strong> Daily Paul drops commence, Predictable Paul coin leaderboard, creator rewards allocations finalized</li>
-        <li><strong>Phase 2:</strong> Trader tracking beta (wallet linking, Paul-trade scoring, public leaderboard)</li>
-        <li><strong>Phase 3:</strong> Predictable Paul trader rewards initiated (includes results from all Paul coins since $PP1)</li>
-        <li><strong>Phase 4:</strong> Predictable Paul NFT collection</li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- Trader Leaderboard -->
-  <section id="trader" class="section">
-    <div class="wrap">
-      <h2>Predictable Paul Trader Leaderboard</h2>
-      <div class="coming-soon">
-        <span class="badge">Coming Soon</span>
-        <p>
-          Track every Paul trade from Day 1. We’ll rank wallets by realized PnL.
-          Season rewards will be funded by creator fees collected across all Predictable Paul coins.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Treasury -->
-  <section id="treasury" class="section alt">
-    <div class="wrap">
-      <h2>Treasury & Creator Fees</h2>
-      <p>
-        A transparent treasury aggregates creator fees from all Predictable Paul coins. Allocations will be disclosed here (and on-chain):
-      </p>
-      <div class="table-wrap">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Allocation</th>
-              <th>%</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody id="treasuryTable">
-            <!-- injected by script.js -->
-          </tbody>
-        </table>
-      </div>
-      <div class="wallets" id="wallets">
-        <!-- optional wallet addresses inserted by script.js -->
-      </div>
-    </div>
-  </section>
-
   <footer class="site-footer">
-    <div class="wrap">
-      <div>© <span id="year"></span> Predictable Paul</div>
-      <div class="footer-nav">
-        <a href="#top">Back to top</a>
-        <a href="#about">About</a>
-        <a href="#roadmap">Roadmap</a>
-        <a href="#trader">Traders Leaderboard</a>
-        <a href="#treasury">Treasury</a>
+    <div class="wrap footer-grid">
+      <div>
+        <div class="brand small">
+          <span class="coin-dot" aria-hidden="true"></span>
+          <span class="brand-name">Predictable Paul</span>
+        </div>
+        <p class="tiny">Built on Solana • Launched on pump.fun</p>
       </div>
+      <div class="links">
+        <a id="twitterLink" target="_blank" rel="noopener">Twitter</a>
+        <a id="telegramLink" target="_blank" rel="noopener">Telegram</a>
+        <a id="docsLink" target="_blank" rel="noopener">Docs</a>
+      </div>
+    </div>
+    <div class="wrap">
+      <p class="legal tiny">© <span id="year"></span> Predictable Paul — Entertainment project, no promises of future profits. DYOR.</p>
     </div>
   </footer>
 
-  <!-- Modal: Launch Dapp -->
-  <dialog id="comingSoonModal" class="modal">
-    <div class="modal-card">
-      <h3>Not ready, pal.</h3>
-      <p>The Dapp launches after we finish wiring trader tracking + rewards.</p>
-      <button id="closeModal" class="btn primary">Got it</button>
+  <!-- Dapp Modal -->
+  <dialog id="dappModal" class="modal">
+    <div class="modal-inner">
+      <h3>Predictable Paul Dapp (Coming Soon)</h3>
+      <p>The control room for the Paul-verse.</p>
+      <ul class="bullets">
+        <li>Paul Explorer: browse all Pauls with stats and badges</li>
+        <li>Leader Console: NFT holders manage their Paul’s presentation</li>
+        <li>Treasury View: live allocations (60/35/5) and history</li>
+      </ul>
+      <div class="modal-ctas">
+        <button class="btn" id="closeDapp">Close</button>
+      </div>
     </div>
   </dialog>
 
