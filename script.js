@@ -6,7 +6,7 @@
 const TODAY = {
   ticker: "$PP1",                                // e.g., "$PAUL29"
   imageUrl: "https://predictablepump.com/pp1.png",   // put today’s Paul image URL
-  pumpLink: "https://pump.fun/coin/REPLACE_THIS"  // pump.fun link for today’s Paul
+  pumpLink: "https://pump.fun/coin/AeJr2c4cCegwVwHYWUwDyLwhkd3sRr1KqTVMg6cNpump"  // pump.fun link for today’s Paul
 };
 
 // Optional: public wallet addresses to display in Treasury
@@ -25,7 +25,7 @@ const TREASURY_ALLOCATION = [
 
 /* Demo Top-10 data — replace with your feed when ready */
 const TOP10_DEMO = [
-  { name: "Predictable Paul #1: OG Paul", ticker: "$PP1", peakMc: 0, date: "2025-09-26", link: "https://pump.fun/coin/..." },
+  { name: "Predictable Paul #1: OG Paul", ticker: "$PP1", peakMc: 0, date: "2025-09-26", link: "https://pump.fun/coin/AeJr2c4cCegwVwHYWUwDyLwhkd3sRr1KqTVMg6cNpump" },
   { name: "-", ticker: "-", peakMc: 0, date: "-", link: "https://pump.fun/coin/..." },
   { name: "-", ticker: "-", peakMc: 0,  date: "-", link: "https://pump.fun/coin/..." },
   { name: "-", ticker: "-", peakMc: 0,  date: "-", link: "https://pump.fun/coin/..." },
