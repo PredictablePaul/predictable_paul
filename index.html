@@ -395,7 +395,6 @@
     },
     tomorrow:{teaserUrl:"/tomorrow.png", hints:["Launch at 9PM EST"]},
     archive:[
-      { day:1, title:"Predictable Paul #1: OG Paul", image:"/pp1.png", peakMc:17900, ticker:"$PP1", graduated:false },
       { day:2, title:"-", image:"https://placehold.co/800x800?text=Paul+2", peakMc:0, ticker:"-" },
       { day:3, title:"-", image:"https://placehold.co/800x800?text=Paul+3", peakMc:0, ticker:"-" },
       { day:4, title:"-", image:"https://placehold.co/800x800?text=Paul+4", peakMc:0, ticker:"-" },
@@ -440,16 +439,71 @@
     caBtn.addEventListener("click",async()=>{try{await navigator.clipboard.writeText(c.ca||""); caBtn.textContent="Copied ✓"; setTimeout(()=>caBtn.textContent=c.ca||"—",1200);}catch{}} );
     $("#pumpTrade").href=c.pumpUrl||"https://pump.fun";
 
-    // Daily countdown to next 9:00 PM local
-    const el=$("#countdownTimer");
-    function getNextNinePM(){ const now=new Date(), next=new Date(); next.setHours(21,0,0,0); if(next<=now) next.setDate(next.getDate()+1); return next; }
-    function tick(){ const target=getNextNinePM().getTime(); let d=Math.max(0,target-Date.now());
-      const h=String(Math.floor(d/3600000)).padStart(2,"0"); d%=3600000;
-      const m=String(Math.floor(d/60000)).padStart(2,"0"); d%=60000;
-      const s=String(Math.floor(d/1000)).padStart(2,"0");
-      el.textContent=`${h}:${m}:${s}`;
-    }
-    tick(); setInterval(tick,1000);
+   // Countdown to the next 9:00 PM in America/New_York, shown in visitor's local time
+const el = document.getElementById('countdownTimer');
+
+// Get NY offset (handles EST/EDT automatically for the target date)
+function tzOffsetMinutes(timeZone, atDate) {
+  const fmt = new Intl.DateTimeFormat('en-US', { timeZone, timeZoneName: 'shortOffset' });
+  const parts = fmt.formatToParts(atDate);
+  const off = parts.find(p => p.type === 'timeZoneName')?.value || 'GMT+0';
+  const m = off.match(/GMT([+-])(\d{1,2})(?::(\d{2}))?/);
+  if (!m) return 0;
+  const sign = m[1] === '-' ? -1 : 1;
+  const hh = parseInt(m[2], 10);
+  const mm = m[3] ? parseInt(m[3], 10) : 0;
+  return sign * (hh * 60 + mm);
+}
+
+function nextNY9pmUTC(now = new Date()) {
+  const tz = 'America/New_York';
+
+  // today's Y/M/D in New York
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: tz, year: 'numeric', month: '2-digit', day: '2-digit'
+  }).formatToParts(now);
+  const getNum = t => parseInt(parts.find(p => p.type === t).value, 10);
+  let y = getNum('year'), m = getNum('month'), d = getNum('day');
+
+  function utcForNY(y, m, d, h = 21, min = 0, s = 0) {
+    const tentativeUTC = Date.UTC(y, m - 1, d, h, min, s);
+    const offMin = tzOffsetMinutes(tz, new Date(tentativeUTC));
+    return tentativeUTC - offMin * 60_000; // NY wall-clock -> real UTC
+  }
+
+  let targetUTC = utcForNY(y, m, d, 21, 0, 0); // today 9:00 PM NY
+  if (targetUTC <= now.getTime()) {
+    // move to next NY calendar day (safe via noon anchor)
+    const todayNYNoonUTC = utcForNY(y, m, d, 12, 0, 0);
+    const nextDayNYNoon = new Date(todayNYNoonUTC + 24 * 60 * 60 * 1000);
+    const nparts = new Intl.DateTimeFormat('en-US', {
+      timeZone: tz, year: 'numeric', month: '2-digit', day: '2-digit'
+    }).formatToParts(nextDayNYNoon);
+    const ny = parseInt(nparts.find(p => p.type === 'year').value, 10);
+    const nm = parseInt(nparts.find(p => p.type === 'month').value, 10);
+    const nd = parseInt(nparts.find(p => p.type === 'day').value, 10);
+    targetUTC = utcForNY(ny, nm, nd, 21, 0, 0);
+  }
+  return targetUTC;
+}
+
+function startCountdown() {
+  function tick() {
+    const now = Date.now();
+    const target = nextNY9pmUTC(new Date(now));
+    let d = Math.max(0, target - now);
+
+    const h = String(Math.floor(d / 3_600_000)).padStart(2, '0'); d %= 3_600_000;
+    const m = String(Math.floor(d / 60_000)).padStart(2, '0');    d %= 60_000;
+    const s = String(Math.floor(d / 1_000)).padStart(2, '0');
+
+    if (el) el.textContent = `${h}:${m}:${s}`;
+  }
+  tick();
+  setInterval(tick, 1000);
+}
+
+startCountdown();
   }catch(e){console.error("current block",e);}
 
   /* Next */
