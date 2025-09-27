@@ -117,7 +117,7 @@
 
   .countdown{margin-top:10px}
   .countdown-label{color:var(--muted); font-size:12px}
-  .countdown-timer{font-weight:900; font-size:26px; letter-spacing:.5px}
+  .countdown-timer{font-weight:900; font-size:32px; letter-spacing:.5px} /* bigger per request */
 
   .pump-note{margin-top:8px; color:var(--brand-gold)}
 
@@ -137,21 +137,16 @@
   .strip-cta{display:flex; justify-content:flex-start}
   @media(min-width:800px){.strip-grid{grid-template-columns:auto 1fr auto} .strip-cta{justify-content:flex-end}}
 
-  /* ===== Top 10 rail ===== */
+  /* ===== Top 10 (table) ===== */
   .top10-section{padding:8px 0 6px}
   .top10-head{display:flex; align-items:center; gap:10px}
-  .top10-rail-outer{position:relative; margin-top:10px}
-  .top10-rail{
-    display:flex; gap:12px; overflow-x:auto; scroll-snap-type:x mandatory; padding:0 4%; -webkit-overflow-scrolling:touch;
-  }
-  .top-card{
-    flex:0 0 auto; width:min(220px,74vw);
-    background:var(--panel); border:1px solid rgba(255,255,255,.08); border-radius:12px; overflow:hidden; scroll-snap-align:start; position:relative;
-    box-shadow:0 6px 16px rgba(0,0,0,.28);
-  }
-  .top-card img{width:100%; aspect-ratio:1/1; object-fit:cover}
-  .rank-chip{position:absolute; top:8px; left:8px; padding:4px 8px; font-weight:900; font-size:12px; border-radius:999px; background:rgba(0,0,0,.6); border:1px solid rgba(255,255,255,.14)}
-  .rank-king{background:linear-gradient(90deg, var(--crown), #ffde89); color:#3b2f00; border-color:transparent}
+  .top10-table-wrap{margin-top:10px}
+  table{width:100%; border-collapse:collapse}
+  th,td{padding:10px; text-align:left}
+  th{background:var(--panel-2); color:var(--brand-gold)}
+  tr:nth-child(even){background:rgba(255,255,255,.05)}
+  tr:hover{background:rgba(255,255,255,.08)}
+  .rank-cell{font-weight:900}
 
   /* ===== Wall (ranked + infinite) ===== */
   .wall-section{padding:18px 0}
@@ -176,12 +171,6 @@
   .rank-badge{position:absolute; top:8px; left:8px; padding:6px 9px; font-weight:900; font-size:12px; border-radius:999px; background:rgba(0,0,0,.6); border:1px solid rgba(255,255,255,.14)}
   .rank-badge.king{background:linear-gradient(90deg, var(--crown), #ffde89); color:#3b2f00; border-color:transparent}
   .wall-sentinel{height:1px; width:1px}
-
-  /* ===== Archive ===== */
-  .archive-section{padding:18px 0}
-  .card-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:14px}
-  @media(min-width:800px){.card-grid{grid-template-columns:repeat(4,1fr)}}
-  .card .meta-row{display:flex; justify-content:space-between; padding:8px 10px; font-size:12px; color:var(--brand-gold)}
 
   /* ===== Info sections ===== */
   .meta-section,.later-section,.treasury-section{padding:18px 0}
@@ -231,11 +220,10 @@
       <label for="navToggle" class="burger" aria-hidden="true"><span></span><span></span><span></span></label>
 
       <nav class="main-nav" aria-label="Main">
-        <a href="#current">Today</a>
-        <a href="#tomorrow">Tomorrow</a>
+        <a href="#current">Current</a>
+        <a href="#tomorrow">Next</a>
         <a href="#later">Later</a>
         <a href="#wall">Wall</a>
-        <a href="#archive">Archive</a>
         <a href="#why">Why&nbsp;Paul</a>
         <a href="#treasury">Treasury</a>
       </nav>
@@ -253,14 +241,14 @@
     <!-- Tri-Card Hero -->
     <section id="current" class="trihero-section">
       <div class="wrap tri-grid">
-        <!-- Today (big) -->
+        <!-- Current (big) -->
         <article class="card today reveal">
           <div class="media">
-            <img id="currentImage" src="" alt="Today’s Paul artwork" loading="eager" />
+            <img id="currentImage" src="" alt="Current Paul artwork" loading="eager" />
             <div class="badge peak" id="peakBadge">Peak MC: —</div>
           </div>
           <div class="body">
-            <h1 class="title"><span id="currentTitle">Today’s Paul</span> <span id="todayBadges" class="badges"></span></h1>
+            <h1 class="title"><span id="currentTitle">Current Paul</span> <span id="todayBadges" class="badges"></span></h1>
             <p class="sub">A new Paul every day at <strong>9:00 PM EST</strong>. Always on-meta.</p>
             <div class="row ca-row"><span class="mono">CA:</span><button class="ca-btn" id="copyCaBtn" title="Copy Contract Address"></button></div>
             <div class="row ctas"><a class="btn primary big" id="pumpTrade" target="_blank" rel="noopener">Trade on pump.fun →</a></div>
@@ -273,14 +261,14 @@
           </div>
         </article>
 
-        <!-- Tomorrow (small) -->
+        <!-- Next (small) -->
         <article id="tomorrow" class="card tomorrow reveal">
           <div class="media veil">
-            <img id="teaserImage" src="" alt="Tomorrow’s Paul teaser" loading="lazy" />
-            <div class="badge chip">Tomorrow · 9:00 PM EST</div>
+            <img id="teaserImage" src="" alt="Next Paul teaser" loading="lazy" />
+            <div class="badge chip">Next · 9:00 PM EST</div>
           </div>
           <div class="body">
-            <h2 class="title small">Tomorrow’s Paul (Encrypted)</h2>
+            <h2 class="title small">Next Paul</h2>
             <ul class="bullets" id="hintsList"><li>Silhouette: —</li><li>Palette: —</li><li>Mood: —</li></ul>
             <p class="tiny muted">Hints at <strong>12 PM</strong> & <strong>6 PM</strong> EST</p>
           </div>
@@ -299,7 +287,7 @@
               <div class="stat"><span>Peak MC</span><strong id="kingPeak">—</strong></div>
               <div class="stat"><span>Day</span><strong id="kingDay">—</strong></div>
             </div>
-            <a class="btn.ghost btn" id="kingView" href="#archive">View in Archive</a>
+            <a class="btn.ghost btn" id="kingView" href="#wall">View on Wall</a>
           </div>
         </article>
       </div>
@@ -315,13 +303,25 @@
       </div>
     </section>
 
-    <!-- Top 10 -->
+    <!-- Top 10 (table) -->
     <section id="top10" class="top10-section">
-      <div class="wrap"><div class="top10-head"><h2>Top 10 Pauls</h2><span class="tiny muted">Ranked by highest peak MC</span></div></div>
-      <div class="top10-rail-outer reveal"><div id="top10Rail" class="top10-rail" aria-label="Top 10 Pauls, horizontal scroll"></div></div>
+      <div class="wrap">
+        <div class="top10-head">
+          <h2>Top 10 Pauls</h2>
+          <span class="tiny muted">Ranked by highest peak MC</span>
+        </div>
+        <div class="top10-table-wrap reveal">
+          <table aria-label="Top 10 Pauls Leaderboard">
+            <thead>
+              <tr><th>Rank</th><th>Paul</th><th>Peak MC</th><th>Badges</th></tr>
+            </thead>
+            <tbody id="top10Table"></tbody>
+          </table>
+        </div>
+      </div>
     </section>
 
-    <!-- Wall -->
+    <!-- Wall (merged with Archive) -->
     <section id="wall" class="wall-section">
       <div class="wrap">
         <div class="wall-head">
@@ -336,14 +336,6 @@
       <div class="wall-rail-outer reveal">
         <div id="wallRail" class="wall-rail" tabindex="0" aria-label="Wall of Pauls, horizontal scroll"></div>
         <div id="wallSentinel" class="wall-sentinel" aria-hidden="true"></div>
-      </div>
-    </section>
-
-    <!-- Archive -->
-    <section id="archive" class="archive-section">
-      <div class="wrap reveal">
-        <div class="arch-head"><h2>Archive</h2><p class="subtitle">Every Paul with its peak MC. Badges mark legends.</p></div>
-        <div id="archiveGrid" class="card-grid"></div>
       </div>
     </section>
 
@@ -422,19 +414,28 @@
   <script>
   /* ===== CONFIG (edit these) ===== */
   const CONFIG = {
-    brand:{ logoUrl:"/assets/predictable-paul-logo.png" }, /* replace with your hosted logo URL */
+    brand:{ logoUrl:"/paul-logo.png" }, /* point to root logo */
     links:{twitter:"https://x.com/predictablepaul", telegram:"https://t.me/predictablepaul", docs:"#", pump_home:"https://pump.fun"},
     wallets:{traderRewards:"PAUL_REWARDS_WALLET_ADDRESS", futureInvestment:"PAUL_FUTURE_WALLET_ADDRESS", teamReserve:"PAUL_TEAM_WALLET_ADDRESS"},
     currentCoin:{
-      day:2, title:"Predictable Paul #2: ???", ticker:"$PAUL2",
+      day:1, title:"Predictable Paul #1: OG Paul", ticker:"$PAUL1",
       ca:"REPLACE_WITH_TODAY_CA",
-      imageUrl:"https://placehold.co/1200x750/png?text=TODAY",
-      pumpUrl:"https://pump.fun", peakMc:25000, volume:7400, holders:310,
-      nextLaunchAt:"2025-09-28T21:00:00-04:00"
+      imageUrl:"/pp1.png",
+      pumpUrl:"https://pump.fun", peakMc:17900, volume:7400, holders:310
     },
-    tomorrow:{teaserUrl:"https://placehold.co/800x600/png?text=%3F", hints:["Silhouette: broad shoulders","Palette: electric cyan","Mood: villain arc"]},
+    tomorrow:{teaserUrl:"/tomorrow.png", hints:["Silhouette: broad shoulders","Palette: electric cyan","Mood: villain arc"]},
+    /* Use archive as historical source for the Wall + Top10 (we'll seed placeholders for now) */
     archive:[
-      { day:1, title:"Predictable Paul #1: OG Paul", image:"https://placehold.co/800/png?text=PAUL1", peakMc:17900, ticker:"$PAUL1", graduated:true }
+      { day:1, title:"Predictable Paul #1: OG Paul", image:"/pp1.png", peakMc:17900, ticker:"$PAUL1", graduated:true },
+      { day:2, title:"Placeholder Paul #2", image:"https://placehold.co/800x800?text=Paul+2", peakMc:12000, ticker:"$PAUL2" },
+      { day:3, title:"Placeholder Paul #3", image:"https://placehold.co/800x800?text=Paul+3", peakMc:9000, ticker:"$PAUL3" },
+      { day:4, title:"Placeholder Paul #4", image:"https://placehold.co/800x800?text=Paul+4", peakMc:7000, ticker:"$PAUL4" },
+      { day:5, title:"Placeholder Paul #5", image:"https://placehold.co/800x800?text=Paul+5", peakMc:6500, ticker:"$PAUL5" },
+      { day:6, title:"Placeholder Paul #6", image:"https://placehold.co/800x800?text=Paul+6", peakMc:6000, ticker:"$PAUL6" },
+      { day:7, title:"Placeholder Paul #7", image:"https://placehold.co/800x800?text=Paul+7", peakMc:5500, ticker:"$PAUL7" },
+      { day:8, title:"Placeholder Paul #8", image:"https://placehold.co/800x800?text=Paul+8", peakMc:5000, ticker:"$PAUL8" },
+      { day:9, title:"Placeholder Paul #9", image:"https://placehold.co/800x800?text=Paul+9", peakMc:4500, ticker:"$PAUL9" },
+      { day:10, title:"Placeholder Paul #10", image:"https://placehold.co/800x800?text=Paul+10", peakMc:4000, ticker:"$PAUL10" }
     ],
     wall:{chunkSize:12}
   };
@@ -456,7 +457,7 @@
     $("#year").textContent=new Date().getFullYear();
   })();
 
-  /* Today */
+  /* Current (was Today) */
   (function(){
     const c=CONFIG.currentCoin;
     $("#currentImage").src=c.imageUrl;
@@ -470,14 +471,27 @@
     caBtn.addEventListener("click",async()=>{try{await navigator.clipboard.writeText(c.ca); caBtn.textContent="Copied ✓"; setTimeout(()=>caBtn.textContent=c.ca,1200);}catch{}});
     $("#pumpTrade").href=c.pumpUrl;
 
-    const nextAt=new Date(c.nextLaunchAt).getTime(), el=$("#countdownTimer");
-    const tick=()=>{const now=Date.now(); let d=Math.max(0,nextAt-now);
-      const h=Math.floor(d/3600000); d-=h*3600000; const m=Math.floor(d/60000); d-=m*60000; const s=Math.floor(d/1000);
+    /* Daily countdown to next 9:00 PM local (simple + reliable for mobile) */
+    const el=$("#countdownTimer");
+    function getNextNinePM(){
+      const now=new Date();
+      const next=new Date();
+      next.setHours(21,0,0,0);
+      if(next<=now) next.setDate(next.getDate()+1);
+      return next;
+    }
+    function tick(){
+      const now=Date.now(); const target=getNextNinePM().getTime();
+      let d=Math.max(0, target-now);
+      const h=Math.floor(d/3600000); d-=h*3600000;
+      const m=Math.floor(d/60000); d-=m*60000;
+      const s=Math.floor(d/1000);
       el.textContent=`${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
-    }; tick(); setInterval(tick,1000);
+    }
+    tick(); setInterval(tick,1000);
   })();
 
-  /* Tomorrow */
+  /* Next (was Tomorrow) */
   (function(){
     $("#teaserImage").src=CONFIG.tomorrow.teaserUrl;
     const list=$("#hintsList"); list.innerHTML="";
@@ -486,7 +500,7 @@
 
   /* All Pauls / King */
   function allPauls(){const arr=[]; const c=CONFIG.currentCoin;
-    if(c) arr.push({day:c.day,title:c.title,image:c.imageUrl,peakMc:c.peakMc,ticker:c.ticker,graduated:(CONFIG.archive||[]).find(a=>a.day===c.day)?.graduated});
+    if(c) arr.push({day:c.day,title:c.title,image=c.imageUrl,peakMc:c.peakMc,ticker:c.ticker,graduated:(CONFIG.archive||[]).find(a=>a.day===c.day)?.graduated});
     (CONFIG.archive||[]).forEach(a=>arr.push({...a})); return arr;}
   function computeKing(){const it=allPauls().slice().sort((a,b)=>(b.peakMc||0)-(a.peakMc||0)); return it[0];}
   (function(){const k=computeKing(); if(!k) return; $("#kingImage").src=k.image; $("#kingTitle").textContent=k.title||"King Paul"; $("#kingPeak").textContent=fmtUSD(k.peakMc); $("#kingDay").textContent=k.day!=null?`#${k.day}`:"—";})();
@@ -504,17 +518,26 @@
     return arr;
   }
 
-  /* Top 10 */
-  (function(){const top10=sortPauls("peak").slice(0,10); const rail=$("#top10Rail"); rail.innerHTML="";
+  /* Top 10 → Table */
+  function renderTop10Table(){
+    const top10=sortPauls("peak").slice(0,10);
     const king=computeKing();
-    top10.forEach((it,i)=>{const card=document.createElement("div"); card.className="top-card";
-      const isKing=king && king.day===it.day;
-      card.innerHTML=`<img loading="lazy" src="${it.image}" alt="Paul Day ${it.day}"><div class="rank-chip ${isKing?"rank-king":""}">${isKing?"👑":"#"+(i+1)}</div>`;
-      rail.appendChild(card);
+    const tbody=$("#top10Table"); tbody.innerHTML="";
+    top10.forEach((it,i)=>{
+      const badges=[];
+      if(king && king.day===it.day) badges.push("👑");
+      if(it.graduated) badges.push("⭐");
+      const tr=document.createElement("tr");
+      tr.innerHTML=`<td class="rank-cell">${i+1}</td>
+                    <td>Day ${it.day}: ${it.title}</td>
+                    <td>${fmtUSD(it.peakMc)}</td>
+                    <td>${badges.join(" ")}</td>`;
+      tbody.appendChild(tr);
     });
-  })();
+  }
+  renderTop10Table();
 
-  /* Wall ranked + infinite */
+  /* Wall ranked + infinite (Archive merged here) */
   let WALL_STATE={sortMode:"peak", items:[], loaded:0};
   function buildWallReset(){WALL_STATE.items=sortPauls(WALL_STATE.sortMode); WALL_STATE.loaded=0; $("#wallRail").innerHTML=""; loadMoreWall();}
   function wallCardHTML(it, rankNumber, isKing){
@@ -532,21 +555,11 @@
       rail.insertAdjacentHTML("beforeend", wallCardHTML(it,i+1,!!isKing));}
     WALL_STATE.loaded=end;
   }
-  (function(){$$(".chip").forEach(ch=>{ch.addEventListener("click",()=>{$$(".chip").forEach(c=>c.classList.remove("active")); ch.classList.add("active"); WALL_STATE.sortMode=ch.dataset.sort; buildWallReset();});});
+  (function(){
+    $$(".chip").forEach(ch=>{ch.addEventListener("click",()=>{$$(".chip").forEach(c=>c.classList.remove("active")); ch.classList.add("active"); WALL_STATE.sortMode=ch.dataset.sort; buildWallReset();});});
     buildWallReset();
     const sentinel=$("#wallSentinel"); const obs=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting && WALL_STATE.loaded<WALL_STATE.items.length){loadMoreWall();}});},{threshold:.1});
     obs.observe(sentinel);
-  })();
-
-  /* Archive */
-  (function(){const grid=$("#archiveGrid"); grid.innerHTML=""; const king=computeKing();
-    const items=(CONFIG.archive||[]).slice().sort((a,b)=>(a.day||0)-(b.day||0));
-    items.forEach(it=>{const badges=[]; if(king && king.day===it.day) badges.push("👑"); if(it.graduated) badges.push("⭐");
-      const card=document.createElement("div"); card.className="card";
-      card.innerHTML=`<div class="media"><img src="${it.image}" alt="Paul Day ${it.day}"></div>
-        <div class="meta-row"><span>Day ${it.day} · ${it.title}</span><span>${fmtUSD(it.peakMc)} ${badges.join(" ")}</span></div>`;
-      grid.appendChild(card);
-    });
   })();
 
   /* Treasury copy */
