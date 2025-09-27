@@ -226,7 +226,6 @@
             <div class="stats">
               <div class="stat"><span>Peak MC</span><strong id="statPeak">—</strong></div>
               <div class="stat"><span>Volume</span><strong id="statVol">—</strong></div>
-              <div class="stat"><span>Holders</span><strong id="statHolders">—</strong></div>
             </div>
             <div class="countdown"><div class="countdown-label">Next Paul launches in</div><div id="countdownTimer" class="countdown-timer">—</div></div>
           </div>
@@ -385,17 +384,16 @@
   /* ===== CONFIG ===== */
   const CONFIG = {
     brand:{ logoUrl:"/paul-logo.png" },
-    links:{twitter:"https://x.com/predictablepaul", telegram:"https://t.me", docs:"#", pump_home:"https://pump.fun"},
+    links:{twitter:"https://x.com/predictablepump", telegram:"https://t.me", docs:"#", pump_home:"https://pump.fun"},
     wallets:{traderRewards:"Cx9WafsmedAivfPjfQrHWHcm5ybemvzZajRYvtz1Wt3u", futureInvestment:"Cx9WafsmedAivfPjfQrHWHcm5ybemvzZajRYvtz1Wt3u", teamReserve:"Cx9WafsmedAivfPjfQrHWHcm5ybemvzZajRYvtz1Wt3u"},
     currentCoin:{
       day:1, title:"Predictable Paul #1: OG Paul", ticker:"$PP1",
       ca:"AeJr2c4cCegwVwHYWUwDyLwhkd3sRr1KqTVMg6cNpump",
       imageUrl:"/pp1.png",
-      pumpUrl:"https://pump.fun/coin/AeJr2c4cCegwVwHYWUwDyLwhkd3sRr1KqTVMg6cNpump", peakMc:17900, volume:29400, holders:22
+      pumpUrl:"https://pump.fun/coin/AeJr2c4cCegwVwHYWUwDyLwhkd3sRr1KqTVMg6cNpump", peakMc:17900, volume:29400
     },
     tomorrow:{teaserUrl:"/tomorrow.png", hints:["Launch at 9PM EST"]},
     archive:[
-      { day:1, title:"Predictable Paul #1: OG Paul", image:"/pp1.png", peakMc:17900, ticker:"$PP1", graduated:false },
       { day:2, title:"-", image:"https://placehold.co/800x800?text=Paul+2", peakMc:0, ticker:"-" },
       { day:3, title:"-", image:"https://placehold.co/800x800?text=Paul+3", peakMc:0, ticker:"-" },
       { day:4, title:"-", image:"https://placehold.co/800x800?text=Paul+4", peakMc:0, ticker:"-" },
@@ -418,7 +416,6 @@
     $("#brandLogo").src = CONFIG.brand.logoUrl || "/paul-logo.png";
     $("#brandLogoFooter").src = CONFIG.brand.logoUrl || "/paul-logo.png";
     $("#twitterLink").href=CONFIG.links.twitter;
-    $("#telegramLink").href=CONFIG.links.telegram;
     $("#docsLink").href=CONFIG.links.docs;
     $("#pumpHome").href=CONFIG.links.pump_home;
     $("#pumpHome2").href=CONFIG.links.pump_home;
