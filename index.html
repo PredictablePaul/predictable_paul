@@ -10,24 +10,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
 
   <style>
-  /* ===== BRAND COLORS (as requested) ===== */
   :root{
     --brand-orange:#ff921e;   /* primary */
     --brand-gold:#f6d35d;     /* beige/gold */
     --brand-deep:#013505;     /* dark green background */
-
     --bg:var(--brand-deep);
-    --panel:#083a16;          /* card Panels (slightly lighter than bg) */
-    --panel-2:#073213;        /* media bg */
-    --muted:#b7c9b7;          /* soft text */
-    --text:#f1fff1;           /* primary text */
+    --panel:#083a16;          
+    --panel-2:#073213;        
+    --muted:#b7c9b7;          
+    --text:#f1fff1;           
     --link:var(--brand-gold);
     --primary:var(--brand-orange);
-    --accent:#1ea85d;         /* leafy green accent to pair with orange */
-    --ring: rgba(246, 211, 93, .40); /* gold glow */
+    --accent:#1ea85d;         
+    --ring: rgba(246, 211, 93, .40);
     --crown:var(--brand-gold);
   }
-
   *{box-sizing:border-box}
   html,body{height:100%}
   body{
@@ -46,11 +43,10 @@
   .tiny{font-size:12px}
   .muted{color:var(--muted)}
   .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; color:#eafbea}
-
   .skip{position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden}
   .skip:focus{left:12px; top:12px; z-index:999; background:#fff; color:#111; padding:6px 10px; border-radius:8px}
 
-  /* ===== HEADER ===== */
+  /* HEADER */
   .site-header{
     position:sticky; top:0; z-index:100;
     background:linear-gradient(180deg, rgba(8,58,22,.95), rgba(8,58,22,.75));
@@ -61,7 +57,6 @@
   .brand{display:flex; align-items:center; gap:10px; color:var(--text); font-weight:900}
   .brand img{width:30px; height:30px; object-fit:contain; filter:drop-shadow(0 0 10px rgba(246,211,93,.25))}
   .brand .brand-name{letter-spacing:.2px}
-
   #navToggle{display:none}
   .burger{display:inline-flex; flex-direction:column; gap:4px; cursor:pointer; padding:8px; border-radius:8px; border:1px solid rgba(255,255,255,.08)}
   .burger span{display:block; width:22px; height:2px; background:#f4fff4}
@@ -70,21 +65,18 @@
   .main-nav{gap:14px; flex-wrap:wrap; align-items:center}
   .main-nav a{color:var(--brand-gold); font-weight:800}
   .main-nav a:hover{color:#ffffff}
-
   @media(min-width:900px){ .burger{display:none} .main-nav{display:flex; justify-content:center} }
-
   .hdr-ctas{display:flex; align-items:center; gap:10px; justify-content:flex-end}
   .pump-badge{display:inline-flex; align-items:center; gap:8px; padding:8px 10px; border-radius:999px;
     background:rgba(255,255,255,.06); color:#fff; font-weight:900; border:1px solid rgba(255,255,255,.1)}
   .pump-dot{width:10px; height:10px; border-radius:50%; background:radial-gradient(circle at 30% 30%, var(--brand-gold), var(--brand-orange))}
   .pump-dot.lg{width:14px; height:14px}
-
   .btn{appearance:none; border:none; padding:10px 14px; border-radius:12px; font-weight:900; color:#0b170f; cursor:pointer; text-decoration:none; display:inline-block}
   .btn.primary{background:linear-gradient(90deg, var(--brand-orange), #ffb269); color:#132717; box-shadow:0 6px 20px rgba(255,146,30,.25)}
   .btn.ghost{background:transparent; color:#ffffff; border:1px solid rgba(255,255,255,.25)}
   .btn.big{padding:12px 16px; border-radius:14px}
 
-  /* ===== TRI-HERO ===== */
+  /* TRI-HERO */
   .trihero-section{padding:20px 0 6px}
   .tri-grid{display:grid; grid-template-columns:1fr; gap:14px}
   .card{background:var(--panel); border:1px solid rgba(255,255,255,.08); border-radius:16px; overflow:hidden; box-shadow:0 12px 28px rgba(0,0,0,.28)}
@@ -100,27 +92,21 @@
   .badge.peak{top:auto; bottom:10px}
   .badge.crown{left:auto; right:10px; top:10px; background:linear-gradient(90deg, var(--crown), #ffd674); color:#3b2f00; text-shadow:0 1px 0 rgba(255,255,255,.35)}
   .badge.chip{top:auto; bottom:10px}
-
   .today .media img{aspect-ratio:1.6/1}
   .tomorrow .media img{filter:grayscale(100%) blur(2px)}
   .tomorrow .media.veil:after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.0), rgba(0,0,0,.66))}
   .king .media img{aspect-ratio:1/1}
-
   .stats{display:grid; grid-template-columns:repeat(3,1fr); gap:10px}
   .stats.compact{grid-template-columns:repeat(2,1fr)}
   .stat{background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); padding:10px; border-radius:12px}
   .stat span{display:block; color:var(--muted); font-size:12px}
   .stat strong{font-size:18px}
-
   .ca-row{display:flex; align-items:center; gap:8px; margin:8px 0}
   .ca-btn{background:var(--panel-2); border:1px dashed rgba(255,255,255,.22); padding:8px 12px; border-radius:10px; color:#fff; cursor:pointer; max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
-
   .countdown{margin-top:10px}
   .countdown-label{color:var(--muted); font-size:12px}
-  .countdown-timer{font-weight:900; font-size:32px; letter-spacing:.5px} /* bigger per request */
-
+  .countdown-timer{font-weight:900; font-size:32px; letter-spacing:.5px}
   .pump-note{margin-top:8px; color:var(--brand-gold)}
-
   @media(min-width:980px){
     .tri-grid{grid-template-columns:2fr 1fr; grid-auto-rows:1fr}
     .card.today{grid-column:1 / 2; grid-row:1 / 3}
@@ -128,7 +114,7 @@
     .card.king{grid-column:2 / 3; grid-row:2 / 3}
   }
 
-  /* ===== pump.fun strip ===== */
+  /* pump.fun strip */
   .pump-strip{padding:16px 0}
   .strip-grid{display:grid; grid-template-columns:1fr; gap:14px; align-items:center}
   .strip-bullets{list-style:none; padding:0; margin:0; display:flex; gap:12px; flex-wrap:wrap; color:var(--brand-gold); font-weight:800}
@@ -137,7 +123,7 @@
   .strip-cta{display:flex; justify-content:flex-start}
   @media(min-width:800px){.strip-grid{grid-template-columns:auto 1fr auto} .strip-cta{justify-content:flex-end}}
 
-  /* ===== Top 10 (table) ===== */
+  /* Top 10 table */
   .top10-section{padding:8px 0 6px}
   .top10-head{display:flex; align-items:center; gap:10px}
   .top10-table-wrap{margin-top:10px}
@@ -148,23 +134,15 @@
   tr:hover{background:rgba(255,255,255,.08)}
   .rank-cell{font-weight:900}
 
-  /* ===== Wall (ranked + infinite) ===== */
+  /* Wall */
   .wall-section{padding:18px 0}
   .wall-head{display:flex; align-items:center; justify-content:space-between; gap:14px}
   .chips{display:flex; gap:8px; flex-wrap:wrap}
   .chip{background:rgba(255,255,255,.06); color:#fff; border:1px solid rgba(255,255,255,.18); border-radius:999px; padding:6px 10px; font-weight:800; cursor:pointer}
   .chip.active{outline:2px solid var(--ring); border-color:transparent}
-
   .wall-rail-outer{position:relative; margin-top:12px}
-  .wall-rail{
-    display:flex; gap:14px; overflow-x:auto; scroll-snap-type:x mandatory; padding:0 4%;
-    -webkit-overflow-scrolling:touch;
-  }
-  .wall-card{
-    flex:0 0 auto; width:min(280px,78vw);
-    background:var(--panel); border:1px solid rgba(255,255,255,.08); border-radius:12px; overflow:hidden; scroll-snap-align:start; position:relative;
-    box-shadow:0 6px 16px rgba(0,0,0,.28);
-  }
+  .wall-rail{display:flex; gap:14px; overflow-x:auto; scroll-snap-type:x mandatory; padding:0 4%; -webkit-overflow-scrolling:touch;}
+  .wall-card{flex:0 0 auto; width:min(280px,78vw); background:var(--panel); border:1px solid rgba(255,255,255,.08); border-radius:12px; overflow:hidden; scroll-snap-align:start; position:relative; box-shadow:0 6px 16px rgba(0,0,0,.28);}
   .wall-card img{width:100%; aspect-ratio:1/1; object-fit:cover}
   .wall-card .meta{display:flex; justify-content:space-between; padding:8px 10px; font-size:12px; color:var(--brand-gold)}
   .wall-card .meta .b{display:inline-flex; gap:6px}
@@ -172,34 +150,27 @@
   .rank-badge.king{background:linear-gradient(90deg, var(--crown), #ffde89); color:#3b2f00; border-color:transparent}
   .wall-sentinel{height:1px; width:1px}
 
-  /* ===== Info sections ===== */
+  /* Info / Treasury / Footer / Modal / Animations (same as before) */
   .meta-section,.later-section,.treasury-section{padding:18px 0}
   .lead{color:var(--brand-gold)}
   .pill-grid{display:grid; grid-template-columns:1fr; gap:12px; margin-top:16px}
   .pill-grid.three{grid-template-columns:1fr}
   .pill{background:var(--panel); border:1px solid rgba(255,255,255,.08); padding:14px; border-radius:12px; box-shadow:0 6px 16px rgba(0,0,0,.18)}
   @media(min-width:900px){.pill-grid{grid-template-columns:repeat(4,1fr)} .pill-grid.three{grid-template-columns:repeat(3,1fr)}}
-
-  /* ===== Treasury ===== */
   .allocs{display:flex; gap:12px; flex-wrap:wrap}
   .alloc{flex:1 1 120px; background:var(--panel); border:1px solid rgba(255,255,255,.08); padding:14px; border-radius:12px; display:grid; place-items:center; text-align:center}
   .alloc strong{font-size:28px; color:var(--brand-gold)}
   .wallets{display:grid; grid-template-columns:1fr; gap:8px; margin-top:12px}
   .wallets .w{display:flex; align-items:center; justify-content:space-between; gap:10px; background:var(--panel); border:1px solid rgba(255,255,255,.08); padding:10px 12px; border-radius:10px}
   .ca-btn.sm{padding:6px 10px; font-size:12px}
-
-  /* ===== Footer & modal ===== */
   .site-footer{border-top:1px solid rgba(255,255,255,.08); padding:20px 0}
   .footer-grid{display:grid; grid-template-columns:1fr; gap:14px}
   @media(min-width:800px){.footer-grid{grid-template-columns:1.2fr .8fr}}
   .links{display:flex; gap:14px; flex-wrap:wrap}
-
   .modal{border:none; border-radius:12px; padding:0; width:min(560px, 92%); background:transparent}
   .modal::backdrop{background:rgba(0,0,0,.6)}
   .modal-inner{background:var(--panel); border:1px solid rgba(255,255,255,.12); padding:16px; border-radius:12px}
   .modal-ctas{display:flex; justify-content:flex-end; gap:8px; margin-top:8px}
-
-  /* ===== Animations ===== */
   .reveal{opacity:0; transform:translateY(8px); transition:opacity .5s ease, transform .5s ease}
   .reveal.visible{opacity:1; transform:none}
   @media (prefers-reduced-motion: reduce){.reveal{transition:none}}
@@ -212,7 +183,7 @@
   <header class="site-header">
     <div class="wrap">
       <a class="brand" href="#top" aria-label="Predictable Paul Home">
-        <img id="brandLogo" alt="Predictable Paul logo" />
+        <img id="brandLogo" src="/paul-logo.png" alt="Predictable Paul logo" />
         <span class="brand-name">Predictable Paul</span>
       </a>
 
@@ -244,7 +215,7 @@
         <!-- Current (big) -->
         <article class="card today reveal">
           <div class="media">
-            <img id="currentImage" src="" alt="Current Paul artwork" loading="eager" />
+            <img id="currentImage" src="/pp1.png" alt="Current Paul artwork" loading="eager" />
             <div class="badge peak" id="peakBadge">Peak MC: —</div>
           </div>
           <div class="body">
@@ -264,7 +235,7 @@
         <!-- Next (small) -->
         <article id="tomorrow" class="card tomorrow reveal">
           <div class="media veil">
-            <img id="teaserImage" src="" alt="Next Paul teaser" loading="lazy" />
+            <img id="teaserImage" src="/tomorrow.png" alt="Next Paul teaser" loading="lazy" />
             <div class="badge chip">Next · 9:00 PM EST</div>
           </div>
           <div class="body">
@@ -277,7 +248,7 @@
         <!-- King (small) -->
         <article class="card king reveal">
           <div class="media">
-            <img id="kingImage" src="" alt="King Paul highlight" loading="lazy" />
+            <img id="kingImage" src="/pp1.png" alt="King Paul highlight" loading="lazy" />
             <div class="badge crown">👑 King Paul</div>
           </div>
           <div class="body">
@@ -363,7 +334,7 @@
           <div class="pill"><h3>On-Chain Registry</h3><p>A minimal registry maps <em>Paul Token ↔ Paul NFT ↔ Leader Wallet</em>. Leadership follows the NFT owner.</p></div>
           <div class="pill"><h3>Leader Console</h3><p>Post-mint dapp controls: official links, meta tags, and display settings—no token mint authority needed.</p></div>
         </div>
-        <p class="tiny muted">Leader status = ecosystem recognition & UI control, not financial rights.</p>
+        <p class="tiny muted">Leader status = ecosytem recognition & UI control, not financial rights.</p>
       </div>
     </section>
 
@@ -389,7 +360,7 @@
   <footer class="site-footer">
     <div class="wrap footer-grid">
       <div class="brand small" style="display:flex;align-items:center;gap:10px;">
-        <img id="brandLogoFooter" alt="Predictable Paul logo" style="width:22px;height:22px;object-fit:contain" />
+        <img id="brandLogoFooter" src="/paul-logo.png" alt="Predictable Paul logo" style="width:22px;height:22px;object-fit:contain" />
         <span class="brand-name">Predictable Paul</span>
       </div>
       <div class="links"><a id="twitterLink" target="_blank" rel="noopener">Twitter</a><a id="telegramLink" target="_blank" rel="noopener">Telegram</a><a id="docsLink" target="_blank" rel="noopener">Docs</a></div>
@@ -412,9 +383,9 @@
   </dialog>
 
   <script>
-  /* ===== CONFIG (edit these) ===== */
+  /* ===== CONFIG ===== */
   const CONFIG = {
-    brand:{ logoUrl:"/paul-logo.png" }, /* point to root logo */
+    brand:{ logoUrl:"/paul-logo.png" },
     links:{twitter:"https://x.com/predictablepaul", telegram:"https://t.me/predictablepaul", docs:"#", pump_home:"https://pump.fun"},
     wallets:{traderRewards:"PAUL_REWARDS_WALLET_ADDRESS", futureInvestment:"PAUL_FUTURE_WALLET_ADDRESS", teamReserve:"PAUL_TEAM_WALLET_ADDRESS"},
     currentCoin:{
@@ -424,7 +395,6 @@
       pumpUrl:"https://pump.fun", peakMc:17900, volume:7400, holders:310
     },
     tomorrow:{teaserUrl:"/tomorrow.png", hints:["Silhouette: broad shoulders","Palette: electric cyan","Mood: villain arc"]},
-    /* Use archive as historical source for the Wall + Top10 (we'll seed placeholders for now) */
     archive:[
       { day:1, title:"Predictable Paul #1: OG Paul", image:"/pp1.png", peakMc:17900, ticker:"$PAUL1", graduated:true },
       { day:2, title:"Placeholder Paul #2", image:"https://placehold.co/800x800?text=Paul+2", peakMc:12000, ticker:"$PAUL2" },
@@ -440,14 +410,14 @@
     wall:{chunkSize:12}
   };
 
-  /* ===== Helpers ===== */
+  /* ===== UTILS ===== */
   const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
   const fmtUSD=n=> (n==null? "—" : `$${Math.round(n).toLocaleString()}`);
 
-  /* Brand logo + Links/Footer */
-  (function(){
-    $("#brandLogo").src = CONFIG.brand.logoUrl;
-    $("#brandLogoFooter").src = CONFIG.brand.logoUrl;
+  /* Brand / links / footer */
+  try{
+    $("#brandLogo").src = CONFIG.brand.logoUrl || "/paul-logo.png";
+    $("#brandLogoFooter").src = CONFIG.brand.logoUrl || "/paul-logo.png";
     $("#twitterLink").href=CONFIG.links.twitter;
     $("#telegramLink").href=CONFIG.links.telegram;
     $("#docsLink").href=CONFIG.links.docs;
@@ -455,60 +425,54 @@
     $("#pumpHome2").href=CONFIG.links.pump_home;
     $("#pumpExplore").href=CONFIG.links.pump_home;
     $("#year").textContent=new Date().getFullYear();
-  })();
+  }catch(e){console.error("brand block",e);}
 
-  /* Current (was Today) */
-  (function(){
-    const c=CONFIG.currentCoin;
-    $("#currentImage").src=c.imageUrl;
-    $("#currentTitle").textContent=c.title;
+  /* Current */
+  try{
+    const c=CONFIG.currentCoin||{};
+    $("#currentImage").src=c.imageUrl||"/pp1.png";
+    $("#currentTitle").textContent=c.title||"Current Paul";
     $("#peakBadge").textContent=`Peak MC: ${fmtUSD(c.peakMc)}`;
     $("#statPeak").textContent=fmtUSD(c.peakMc);
     $("#statVol").textContent=fmtUSD(c.volume);
-    $("#statHolders").textContent=c.holders?.toLocaleString() ?? "—";
+    $("#statHolders").textContent=c.holders!=null?c.holders.toLocaleString():"—";
     const caBtn=$("#copyCaBtn");
-    caBtn.textContent=c.ca;
-    caBtn.addEventListener("click",async()=>{try{await navigator.clipboard.writeText(c.ca); caBtn.textContent="Copied ✓"; setTimeout(()=>caBtn.textContent=c.ca,1200);}catch{}});
-    $("#pumpTrade").href=c.pumpUrl;
+    caBtn.textContent=c.ca||"—";
+    caBtn.addEventListener("click",async()=>{try{await navigator.clipboard.writeText(c.ca||""); caBtn.textContent="Copied ✓"; setTimeout(()=>caBtn.textContent=c.ca||"—",1200);}catch{}} );
+    $("#pumpTrade").href=c.pumpUrl||"https://pump.fun";
 
-    /* Daily countdown to next 9:00 PM local (simple + reliable for mobile) */
+    // Daily countdown to next 9:00 PM local
     const el=$("#countdownTimer");
-    function getNextNinePM(){
-      const now=new Date();
-      const next=new Date();
-      next.setHours(21,0,0,0);
-      if(next<=now) next.setDate(next.getDate()+1);
-      return next;
-    }
-    function tick(){
-      const now=Date.now(); const target=getNextNinePM().getTime();
-      let d=Math.max(0, target-now);
-      const h=Math.floor(d/3600000); d-=h*3600000;
-      const m=Math.floor(d/60000); d-=m*60000;
-      const s=Math.floor(d/1000);
-      el.textContent=`${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
+    function getNextNinePM(){ const now=new Date(), next=new Date(); next.setHours(21,0,0,0); if(next<=now) next.setDate(next.getDate()+1); return next; }
+    function tick(){ const target=getNextNinePM().getTime(); let d=Math.max(0,target-Date.now());
+      const h=String(Math.floor(d/3600000)).padStart(2,"0"); d%=3600000;
+      const m=String(Math.floor(d/60000)).padStart(2,"0"); d%=60000;
+      const s=String(Math.floor(d/1000)).padStart(2,"0");
+      el.textContent=`${h}:${m}:${s}`;
     }
     tick(); setInterval(tick,1000);
-  })();
+  }catch(e){console.error("current block",e);}
 
-  /* Next (was Tomorrow) */
-  (function(){
-    $("#teaserImage").src=CONFIG.tomorrow.teaserUrl;
+  /* Next */
+  try{
+    $("#teaserImage").src=CONFIG.tomorrow?.teaserUrl||"/tomorrow.png";
     const list=$("#hintsList"); list.innerHTML="";
-    CONFIG.tomorrow.hints.forEach(h=>{const li=document.createElement("li"); li.textContent=h; list.appendChild(li);});
-  })();
+    (CONFIG.tomorrow?.hints||[]).forEach(h=>{const li=document.createElement("li"); li.textContent=h; list.appendChild(li);});
+  }catch(e){console.error("next block",e);}
 
   /* All Pauls / King */
   function allPauls(){const arr=[]; const c=CONFIG.currentCoin;
-    if(c) arr.push({day:c.day,title:c.title,image=c.imageUrl,peakMc:c.peakMc,ticker:c.ticker,graduated:(CONFIG.archive||[]).find(a=>a.day===c.day)?.graduated});
+    if(c) arr.push({day:c.day,title:c.title,image:c.imageUrl,peakMc:c.peakMc,ticker:c.ticker,graduated:(CONFIG.archive||[]).find(a=>a.day===c.day)?.graduated});
     (CONFIG.archive||[]).forEach(a=>arr.push({...a})); return arr;}
   function computeKing(){const it=allPauls().slice().sort((a,b)=>(b.peakMc||0)-(a.peakMc||0)); return it[0];}
-  (function(){const k=computeKing(); if(!k) return; $("#kingImage").src=k.image; $("#kingTitle").textContent=k.title||"King Paul"; $("#kingPeak").textContent=fmtUSD(k.peakMc); $("#kingDay").textContent=k.day!=null?`#${k.day}`:"—";})();
-  (function(){const holder=$("#todayBadges"); holder.innerHTML=""; const k=computeKing();
-    if(k && k.day===CONFIG.currentCoin.day){const b=document.createElement("span"); b.title="King Paul — highest peak MC"; b.textContent="👑"; holder.appendChild(b);}
-    const grad=(CONFIG.archive||[]).find(a=>a.day===CONFIG.currentCoin.day)?.graduated;
-    if(grad){const s=document.createElement("span"); s.title="Graduated on pump.fun"; s.textContent="⭐"; holder.appendChild(s);}
-  })();
+
+  try{
+    const k=computeKing(); if(k){ $("#kingImage").src=k.image||"/pp1.png"; $("#kingTitle").textContent=k.title||"King Paul"; $("#kingPeak").textContent=fmtUSD(k.peakMc); $("#kingDay").textContent=k.day!=null?`#${k.day}`:"—"; }
+    const holder=$("#todayBadges"); holder.innerHTML="";
+    if(k && k.day===CONFIG.currentCoin?.day){ const b=document.createElement("span"); b.title="King Paul — highest peak MC"; b.textContent="👑"; holder.appendChild(b); }
+    const grad=(CONFIG.archive||[]).find(a=>a.day===CONFIG.currentCoin?.day)?.graduated;
+    if(grad){ const s=document.createElement("span"); s.title="Graduated on pump.fun"; s.textContent="⭐"; holder.appendChild(s); }
+  }catch(e){console.error("king badges",e);}
 
   /* Sort helpers */
   function sortPauls(mode){const arr=allPauls().slice();
@@ -518,15 +482,12 @@
     return arr;
   }
 
-  /* Top 10 → Table */
-  function renderTop10Table(){
-    const top10=sortPauls("peak").slice(0,10);
-    const king=computeKing();
+  /* Top 10 table */
+  try{
     const tbody=$("#top10Table"); tbody.innerHTML="";
-    top10.forEach((it,i)=>{
-      const badges=[];
-      if(king && king.day===it.day) badges.push("👑");
-      if(it.graduated) badges.push("⭐");
+    const king=computeKing();
+    sortPauls("peak").slice(0,10).forEach((it,i)=>{
+      const badges=[]; if(king && king.day===it.day) badges.push("👑"); if(it.graduated) badges.push("⭐");
       const tr=document.createElement("tr");
       tr.innerHTML=`<td class="rank-cell">${i+1}</td>
                     <td>Day ${it.day}: ${it.title}</td>
@@ -534,10 +495,9 @@
                     <td>${badges.join(" ")}</td>`;
       tbody.appendChild(tr);
     });
-  }
-  renderTop10Table();
+  }catch(e){console.error("top10",e);}
 
-  /* Wall ranked + infinite (Archive merged here) */
+  /* Wall (infinite) */
   let WALL_STATE={sortMode:"peak", items:[], loaded:0};
   function buildWallReset(){WALL_STATE.items=sortPauls(WALL_STATE.sortMode); WALL_STATE.loaded=0; $("#wallRail").innerHTML=""; loadMoreWall();}
   function wallCardHTML(it, rankNumber, isKing){
@@ -549,31 +509,37 @@
       <div class="meta"><span>Day ${it.day} · ${it.title?.split(":")[0]||""}</span><span class="b">${badges.join(" ")}</span></div>
     </div>`;
   }
-  function loadMoreWall(){const rail=$("#wallRail"); const king=computeKing();
+  function loadMoreWall(){ try{
+    const rail=$("#wallRail"); const king=computeKing();
     const start=WALL_STATE.loaded, end=Math.min(WALL_STATE.items.length,start+(CONFIG.wall.chunkSize||12));
     for(let i=start;i<end;i++){const it=WALL_STATE.items[i]; const isKing=king && king.day===it.day && WALL_STATE.sortMode==="peak" && i===0;
       rail.insertAdjacentHTML("beforeend", wallCardHTML(it,i+1,!!isKing));}
     WALL_STATE.loaded=end;
-  }
-  (function(){
+  }catch(e){console.error("wall load",e);} }
+
+  try{
     $$(".chip").forEach(ch=>{ch.addEventListener("click",()=>{$$(".chip").forEach(c=>c.classList.remove("active")); ch.classList.add("active"); WALL_STATE.sortMode=ch.dataset.sort; buildWallReset();});});
     buildWallReset();
     const sentinel=$("#wallSentinel"); const obs=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting && WALL_STATE.loaded<WALL_STATE.items.length){loadMoreWall();}});},{threshold:.1});
     obs.observe(sentinel);
-  })();
+  }catch(e){console.error("wall init",e);}
 
   /* Treasury copy */
-  (function(){const map={wRewards:CONFIG.wallets.traderRewards,wFuture:CONFIG.wallets.futureInvestment,wTeam:CONFIG.wallets.teamReserve};
+  try{
+    const map={wRewards:CONFIG.wallets.traderRewards,wFuture:CONFIG.wallets.futureInvestment,wTeam:CONFIG.wallets.teamReserve};
     Object.entries(map).forEach(([id,val])=>{const btn=document.getElementById(id); btn?.addEventListener("click",async()=>{try{await navigator.clipboard.writeText(val); btn.textContent="Copied ✓"; setTimeout(()=>btn.textContent="Copy",1000);}catch{}});});
-  })();
+  }catch(e){console.error("treasury copy",e);}
 
   /* Modal */
-  (function(){const dlg=document.getElementById("dappModal"); const openBtn=document.getElementById("launchDappBtn"); const closeBtn=document.getElementById("closeDapp");
+  try{
+    const dlg=document.getElementById("dappModal"); const openBtn=document.getElementById("launchDappBtn"); const closeBtn=document.getElementById("closeDapp");
     openBtn?.addEventListener("click",()=>dlg.showModal()); closeBtn?.addEventListener("click",()=>dlg.close());
-  })();
+  }catch(e){console.error("modal",e);}
 
   /* Scroll reveal */
-  (function(){const els=$$(".reveal"); const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");obs.unobserve(e.target);}});},{threshold:.15}); els.forEach(el=>obs.observe(el));})();
+  try{
+    const els=$$(".reveal"); const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");obs.unobserve(e.target);}});},{threshold:.15}); els.forEach(el=>obs.observe(el));
+  }catch(e){console.error("reveal",e);}
   </script>
 </body>
 </html>
